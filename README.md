@@ -28,7 +28,7 @@ La clave para realizar este script fue este apartado de la documentación de Cel
     Update the observer's position if goto is active
     Render all objects using the current settings (renderflags, time. positions)
 
-Con mi rudimentario inglés y con ayuda del traductor comprendí por fín que el **wait** devuelve el control a Celestia y por lo tanto el usuario puede seguir navegando hacia donde quiera.
+Con mi rudimentario inglés y con ayuda del traductor comprendí por fín que el comando **wait** devuelve el control a Celestia y por lo tanto el usuario puede seguir navegando hacia donde quiera.
 
 También me sirvió ver los propios script que trae el programa para comprender que se pueden lanzar bucles que sigan corriendo en paralelo al ciclo principal de Celestia.
 
@@ -39,6 +39,7 @@ También me sirvió ver los propios script que trae el programa para comprender 
 ```
 
 Se me ocurren muchas mejoras que se pueden hacer al script e invito a la comunidad a colaborar. Entre ellas están:
+
 * Separar la parte editable con las opciones del recorrido y que al iniciar el script se pueda seleccionar uno.
 * Detección múltiple de lugares a los que llega el usuario para dar diferentes mensajes.
 * Algún sistema de edición menos técnico para los docentes u otras personas que quieran crear sus propios recorridos.

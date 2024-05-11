@@ -10,6 +10,7 @@ recorrido = {}
 recorrido[1] = { objetivo = "Marte", pista = "Le llaman el planeta rojo.", felicitacion = "Muy bien." }
 recorrido[2] = { objetivo = "Tierra", pista = "Nuestra casa. Que original mi pista eh.", felicitacion = "No esperaba menos de ti." }
 recorrido[3] = { objetivo = "Júpiter", pista = "Es el planeta más grande y tiene el nombre de un poderoso dios.", felicitacion = "Exacto. Júpiter es un dios romano." }
+recorrido[4] = { objetivo = "Urano", pista = "Tiene anillos y no es Saturno.", felicitacion = "Perfecto. Urano tiene unos anilos que no son tan fáciles de ver." }
 
 felicitacionfinal = "Completaste el recorrido. ¡Felicitaciones!" 
 

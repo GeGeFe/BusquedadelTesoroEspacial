@@ -1,0 +1,1 @@
+Este es un script para el programa [Celestia](https://celestiaproject.space/) que permite realizar una "búsqueda del tesoro espacial" o una persecución similar a la del famoso juego "¿Dónde está Carmen San Diego?".

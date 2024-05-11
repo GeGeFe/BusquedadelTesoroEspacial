@@ -1,0 +1,38 @@
+-- Title: Busqueda del tesoro espacial
+-- Autor: Gabriel Gioiosa Farina
+-- Licencia: GPL3
+
+recorrido = {}
+
+-- Aquí hay que ir poniendo los pasos a seguir. Solo hace falta modificar lo que está entre comillas y si es necesario
+-- agregar pasos con la misma estructura.
+
+recorrido[1] = { objetivo = "Marte", pista = "Le llaman el planeta rojo.", felicitacion = "Muy bien." }
+recorrido[2] = { objetivo = "Tierra", pista = "Nuestra casa. Que original mi pista eh.", felicitacion = "No esperaba menos de ti." }
+recorrido[3] = { objetivo = "Júpiter", pista = "Es el planeta más grande y tiene el nombre de un poderoso dios.", felicitacion = "Exacto. Júpiter es un dios romano." }
+
+felicitacionfinal = "Completaste el recorrido. ¡Felicitaciones!" 
+
+-- No modifique lo que sigue si no sabe programación. 
+
+paso = 1
+observador = celestia:getobserver()
+while paso < #recorrido + 1 do
+   sel = celestia:getselection()
+   name = sel:localname()
+   distancia = sel:getposition():distanceto(observador:getposition())
+   distpradio = distancia * 100 / sel:radius()
+
+   celestia:print(recorrido[paso].pista, 1.0, -1, -1, 2, 4)
+
+   if name == recorrido[paso].objetivo then
+      if distpradio <= 600 then
+         celestia:print(recorrido[paso].felicitacion, 3.0, -1, -1, 2, 4)
+         wait(3.0)
+         paso = paso + 1
+      end
+   end
+   wait(0)
+end
+celestia:print(felicitacionfinal, 5.0, -1, -1, 2, 4)
+wait(5)

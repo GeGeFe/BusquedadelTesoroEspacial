@@ -9,6 +9,7 @@ observador = celestia:getobserver()
 celestia:setrenderflags{orbits = true}
 
 -- Dentro de seturl(url) se puede pegar una url (Posición) pregrabada en Celestia en navegación/Copy URL para iniciar el recorrido con la vista que uno quiera.
+-- 
 -- Aquí hay que ir poniendo los pasos a seguir. Solo hace falta modificar lo que está entre comillas y si es necesario
 -- agregar pasos con la misma estructura.
 -- 

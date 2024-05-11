@@ -2,13 +2,15 @@
 
 Este es un script para el programa [Celestia](https://celestiaproject.space/) que permite realizar una "búsqueda del tesoro espacial" o una persecución similar a la del famoso juego ["¿Dónde está Carmen San Diego?"](https://www.clasicosbasicos.org/juegos/aventura-grafica/donde-esta-carmen-sandiego-buscala-por-todo-el-mundo).
 
-No es necesario instalar nada. Solo abrir Celestia y hacer click en archivo/abrir script. Luego elegir el archivo Tesoro.celx.
+No es necesario instalar nada. Solo abrir Celestia y hacer clic en archivo/abrir script. Luego elegir el archivo Tesoro.celx.
 
 ## Para docentes o quienes quieran crear sus propios recorridos:
 
-Por ahora para cada recorrido/persecución es necesario crear una copia del archivo del script Tesoro.celx y modificar internamente la parte señalada entre comentarios (Los comentarios son las lineas del archivo que comienzan por **--**) 
+Por ahora para cada recorrido/persecución es necesario crear una copia del archivo del script Tesoro.celx y modificar internamente la parte señalada entre comentarios (Los comentarios son las lineas del archivo que comienzan por **--**)
 
 El script funciona en **Celestia 1.7.0 para linux**. En  una instalación de una versión anterior no funcionó. También funciona bien en **Celestia 1.6.2.2 para Windows** (Gracias a Ricardo Tohmé por probarlo).
+
+En caso de utilizarlo como búsqueda del tesoro la etiqueta *felicitacion* funciona como su nombre indica. Si se hace una persecución espacial, la *felicitacion* cambia de sentido y sirve para explicar como a pesar de haber llegado al destino resolviendo la pista, el *ladrón espacial* se nos escapa y se va al siguiente destino.
 
 Por cada punto del recorrido se debe agregar una linea como la siguiente:
 
@@ -28,7 +30,7 @@ La clave para realizar este script fue este apartado de la documentación de Cel
     Update the observer's position if goto is active
     Render all objects using the current settings (renderflags, time. positions)
 
-Con mi rudimentario inglés y con ayuda del traductor comprendí por fín que el comando **wait** devuelve el control a Celestia y por lo tanto el usuario puede seguir navegando hacia donde quiera.
+Con mi rudimentario inglés y con ayuda del traductor comprendí por fin que el comando **wait** devuelve el control a Celestia y por lo tanto el usuario puede seguir navegando hacia donde quiera.
 
 También me sirvió ver los propios script que trae el programa para comprender que se pueden lanzar bucles que sigan corriendo en paralelo al ciclo principal de Celestia.
 

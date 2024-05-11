@@ -8,7 +8,7 @@ No es necesario instalar nada. Solo abrir Celestia y hacer click en archivo/abri
 
 Por ahora para cada recorrido/persecución es necesario crear una copia del archivo del script Tesoro.celx y modificar internamente la parte señalada entre comentarios (Los comentarios son las lineas del archivo que comienzan por **--**) 
 
-El script funciona en **Celestia 1.7.0 para linux**. En  una instalación de una versión anterior no funcionó. No fue probado aun en la versión de **Celestia para Windows**
+El script funciona en **Celestia 1.7.0 para linux**. En  una instalación de una versión anterior no funcionó. También funciona bien en **Celestia 1.6.2.2 para Windows** (Gracias a Ricardo Tohmé por probarlo).
 
 Por cada punto del recorrido se debe agregar una linea como la siguiente:
 

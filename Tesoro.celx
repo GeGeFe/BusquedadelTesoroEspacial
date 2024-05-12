@@ -1,13 +1,23 @@
 -- Title: Busqueda del tesoro espacial
 -- Autor: Gabriel Gioiosa Farina
+-- Ideas incorporadas de: Lucho Ferrer y Leonardo GF
 -- Licencia: GPL3
 
 recorrido = {}
+observador = celestia:getobserver()
 
+-- Aquí se indica a Celestia que muestre las órbitas. Puede comentarse la linea o reemplazar true por false si no se quieren mostrar las órbitas.
+celestia:setrenderflags{orbits = true}
+
+-- Dentro de seturl(url) se puede pegar una url (Posición) pregrabada en Celestia en navegación/Copy URL para iniciar el recorrido con la vista que uno quiera.
+-- Si no se necesita esa opción puede comentarse la linea agregando "-- " al comienzo y sin las comillas.
+-- 
 -- Aquí hay que ir poniendo los pasos a seguir. Solo hace falta modificar lo que está entre comillas y si es necesario
 -- agregar pasos con la misma estructura.
+-- 
 -- recorrido[n] = { objetivo = "", pista = "", felicitacion = "" }
 
+celestia:seturl("cel://Follow/Sol:Earth/2024-05-11T21:43:09.02325Z?x=AAAAnGLs5CC1AQ&y=AAAAs2Vub+mQ+v///////w&z=AAAgOHQ786j//f///////w&ow=0.29790708&ox=-0.192127&oy=-0.79252994&oz=0.49622056&fov=37.01057&ts=1&ltd=0&p=0&rf=71096247&nrf=255&lm=2048&tsrc=0&ver=3", observador)
 
 introduccion = "¡Bienvenid@ a la Busqueda del Tesoro Espacial! Seguí las pistas y llegá al final del recorrido. ¡Suerte!"
 
@@ -31,7 +41,6 @@ felicitacionfinal = "Completaste el recorrido. ¡Felicitaciones!"
 celestia:print(introduccion, 7.0, -1, -1, 2, 4)
 wait(7.0)
 paso = 1
-observador = celestia:getobserver()
 while paso < #recorrido + 1 do
    sel = celestia:getselection()
    name = sel:localname()
@@ -40,8 +49,17 @@ while paso < #recorrido + 1 do
 
    celestia:print(recorrido[paso].pista, 1.0, -1, -1, 2, 4)
 
+-- Si el objeto seleccionado corresponde con el objetivo actual se verifica luego la distancia.
    if name == recorrido[paso].objetivo then
-      if distpradio <= 600 then
+-- Distancia porcentual a la que se considerará que se llegó al objetivo seleccionado según el tipo al que corresponde.
+      if sel:type() == "planet" then
+         distllegada = 550
+      elseif sel:type() == "star" then
+         distllegada = 10000
+      else
+         distllegada = 600
+      end
+      if distpradio <= distllegada then
          celestia:print(recorrido[paso].felicitacion, 5.0, -1, -1, 2, 4)
          wait(5.0)
          paso = paso + 1

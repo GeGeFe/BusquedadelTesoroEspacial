@@ -6,7 +6,7 @@
 recorrido = {}
 observador = celestia:getobserver()
 
-pathname = celestia:getscriptpath():match("(.*[/\\])") .. "/images/"
+pathname = celestia:getscriptpath():match("(.*[/\\])") .. "images/"
 
 -- Aquí se indica a Celestia que muestre las órbitas. Puede comentarse la linea o reemplazar true por false si no se quieren mostrar las órbitas.
 celestia:setrenderflags{orbits = false}

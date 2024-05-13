@@ -6,6 +6,8 @@
 recorrido = {}
 observador = celestia:getobserver()
 
+pathname = celestia:getscriptpath():match("(.*[/\\])") .. "/images/"
+
 -- Aquí se indica a Celestia que muestre las órbitas. Puede comentarse la linea o reemplazar true por false si no se quieren mostrar las órbitas.
 celestia:setrenderflags{orbits = false}
 
@@ -21,11 +23,11 @@ celestia:seturl("cel://Follow/Sol:Earth/2024-05-13T00:55:06.81003Z?x=qDpqsrQzj//
 
 introduccion = "El ladrón intergaláctico Elongast ha robado los cohetes más poderosos de la tierra y ahora huye de la ley viajando por el sistema solar.\nTu misión es perseguirlo hasta atraparlo. Buena suerte"
 
-recorrido[1] = { objetivo = "Luna", pista = "Quería saber si había hotel disponible en la cara oculta.", felicitacion = "Elongast estuvo aquí pero ha escapado nuevamente." }
-recorrido[2] = { objetivo = "Marte", pista = "Dijo que estaba muy interesado en escalar el volcán más alto del sistema.", felicitacion = "Parece que has llegado tarde por poco." }
-recorrido[3] = { objetivo = "Urano", pista = "Se llevó el abrigo más eficiente que encontró pero aun así insistía en que no sería suficiente.", felicitacion = "¡Me ha robado! Lo vi pero ya se fue." }
-recorrido[4] = { objetivo = "Júpiter", pista = "Preguntó por la cinta métrica más grande que teníamos. Al parecer quiere medir algo enorme", felicitacion = "¡Que enredo! Mire como dejó todo con esa cinta enorme." }
-recorrido[5] = { objetivo = "Saturno", pista = "Le encantaron los esquies. Son para deporte extremo sobre anillos de partículas de hielo.", felicitacion = "Estás muy cerca..." }
+recorrido[1] = { objetivo = "Luna", pista = "Agente de viajes: Quería saber si había hotel disponible en la cara oculta.", felicitacion = "Elongast estuvo aquí pero ha escapado nuevamente.", personaje = "personaje01.png" }
+recorrido[2] = { objetivo = "Marte", pista = "Turista: Dijo que estaba muy interesado en escalar el volcán más alto del sistema.", felicitacion = "Parece que has llegado tarde por poco.", personaje = "personaje02.png" }
+recorrido[3] = { objetivo = "Urano", pista = "Vendedor: Se llevó el abrigo más eficiente que encontró pero aun así insistía en que no sería suficiente.", felicitacion = "¡Me ha robado! Lo vi pero ya se fue.", personaje = "personaje03.png" }
+recorrido[4] = { objetivo = "Júpiter", pista = "Vendedor: Preguntó por la cinta métrica más grande que teníamos. Al parecer quiere medir algo enorme.", felicitacion = "¡Que enredo! Mire como dejó todo con esa cinta enorme.", personaje = "personaje04.png" }
+recorrido[5] = { objetivo = "Saturno", pista = "Vendedor: Le encantaron los esquies. Son para deporte extremo sobre anillos de partículas de hielo.", felicitacion = "Estás muy cerca...", personaje = "personaje05.png" }
 
 felicitacionfinal = "Luego de una difícil persecución sobre los anillos de Saturno lograste atrapar a Elongast. ¡Felicitaciones!\nLa policía espacial está muy agradecida por tu excelente trabajo." 
 
@@ -40,6 +42,7 @@ while paso < #recorrido + 1 do
    distancia = sel:getposition():distanceto(observador:getposition())
    distpradio = distancia * 100 / sel:radius()
 
+   celestia:overlay ( 0.1, -0.8, -0.6, 0.7, pathname .. recorrido[paso].personaje )
    celestia:print(recorrido[paso].pista, 1.0, -1, -1, 2, 4)
 
 -- Si el objeto seleccionado corresponde con el objetivo actual se verifica luego la distancia.
@@ -53,7 +56,7 @@ while paso < #recorrido + 1 do
          distllegada = 600
       end
       if distpradio <= distllegada then
-         celestia:print(recorrido[paso].felicitacion, 10.0, -1, -1, 2, 4)
+         celestia:print(recorrido[paso].felicitacion, 10.0, 0, -1, 2, 4)
          wait(10.0)
          paso = paso + 1
       end

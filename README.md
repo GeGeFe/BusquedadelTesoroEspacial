@@ -6,7 +6,7 @@ No es necesario instalar nada. Solo abrir Celestia y hacer clic en archivo/abrir
 
 ## Para docentes o quienes quieran crear sus propios recorridos:
 
-[![Video explicativo](https://youtu.be/PUFqwxdwHwg)](https://youtu.be/PUFqwxdwHwg)
+[Video explicativo](https://youtu.be/PUFqwxdwHwg)
 
 Por ahora para cada recorrido/persecución es necesario crear una copia del archivo del script Tesoro.celx y modificar internamente la parte señalada entre comentarios (Los comentarios son las lineas del archivo que comienzan por **--**)
 

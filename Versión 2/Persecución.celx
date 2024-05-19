@@ -1,0 +1,71 @@
+-- Title: Busqueda del tesoro espacial
+-- Autor: Gabriel Gioiosa Farina
+-- Ideas incorporadas de: Lucho Ferrer y Leonardo GF
+-- Licencia: GPL3
+
+function findelgo()
+   sel = celestia:getselection()
+   distancia = sel:getposition():distanceto(observador:getposition())
+   distpradio = distancia * 100 / sel:radius()
+-- Distancia porcentual a la que se considerará que se llegó al objetivo seleccionado según el tipo al que corresponde.
+   if sel:type() == "planet" then
+      distllegada = 550
+   elseif sel:type() == "star" then
+      distllegada = 10000
+   else
+      distllegada = 600
+   end
+   return distpradio <= distllegada 
+end
+
+-- Semilla para que random sea más aleatorio.
+math.randomseed(celestia:gettime())
+
+-- recorrido = {}
+observador = celestia:getobserver()
+
+pathname = celestia:getscriptpath():match("(.*[/\\])")
+
+-- Aquí se indica a Celestia que muestre las órbitas. Puede comentarse la linea o reemplazar true por false si no se quieren mostrar las órbitas.
+celestia:setrenderflags{orbits = false}
+
+dofile(pathname .. "contenido.lua")
+
+if ubicacioninicial then celestia:seturl(ubicacioninicial, observador) end
+
+-- Introducción
+celestia:overlay ( introduccion.pausa, 0, -0.8, 1, pathname .. "imagenes/" .. introduccion.imagen )
+celestia:print(introduccion.texto, introduccion.pausa, -1, 0, 2, 4)
+wait(introduccion.pausa)
+-- Fin de introducción
+
+-- Comienza el recorrido
+paso = 1
+while paso < #recorrido + 1 do
+   if findelgo() then 
+--    Se llegó a algún lado
+      if sel:localname() == recorrido[paso].objetivo then
+--       Coincide el objetivo con el lugar al que se llegó
+         celestia:print(recorrido[paso].felicitacion, 10.0, 0, -1, 2, 4)
+         wait(10.0)
+         paso = paso + 1
+         celestia:select("") -- Deselecciono objeto para que no se confunda con el siguiente objetivo.
+      else
+--       Se llegó a otro lugar
+         if recorrido[paso].fallos then
+            celestia:print(recorrido[paso].fallos[math.random(1, #recorrido[paso].fallos)], 5.0, 0, -1, 2, 4)
+            wait(5.0)
+         end
+      end
+   else
+--    Todavía no se llegó a un objetivo
+      totalpistas = #recorrido[paso].pistas -- Aquí puedo confiar en que si o si está declarada pistas con al menos un valor.
+      celestia:overlay ( 0.1, -0.8, -0.6, 1, pathname .. "imagenes/" .. recorrido[paso].pistas[1].personaje ) -- Me gusta más imagenes que images. Soy argentino y hablo español que tanto inglés.
+      celestia:print(recorrido[paso].pistas[1].texto, 1.0, -1, -1, 2, 4)
+   end
+   wait(0)
+end
+
+-- Final
+celestia:print(felicitacionfinal, 15.0, -1, 0, 2, 4)
+wait(15.0)

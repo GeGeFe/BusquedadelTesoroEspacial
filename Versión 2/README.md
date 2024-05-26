@@ -8,7 +8,12 @@ No es necesario instalar nada. Solo abrir Celestia y hacer clic en archivo/abrir
 
 [Video explicativo](https://youtu.be/PUFqwxdwHwg)
 
-Para modificar los recorridos hay que editar el archivo contenido.lua.
+Para modificar los recorridos hay que editar el archivo contenido.lua o copiarlo en otro archivo y llamar el nuevo archivo desde la linea correspondiente del archivo Persecución.celx
+
+Es decir, reemplazar el nombre del archivo que se indica entre comillas por el archivo nuevo.
+```lua
+  (pathname .. "contenido.lua")
+```
 
 El script funciona en **Celestia 1.7.0 para linux**. En  una instalación de una versión anterior no funcionó. También funciona bien en **Celestia 1.6.2.2 para Windows** (Gracias a Ricardo Tohmé por probarlo).
 
@@ -17,9 +22,24 @@ En caso de utilizarlo como búsqueda del tesoro la etiqueta *felicitacion* funci
 Por cada punto del recorrido se debe agregar una linea como la siguiente:
 
 ```lua
-  recorrido[n] = { objetivo = "Destino n", pista = "Pista n", felicitacion = "Felicitación n/Excusa n", personaje = "archivo.png" }
+    {   objetivo = "Objeto al cual llegar",
+        pistas = { 
+            { texto = "Agente de viajes: Quería saber si había hotel disponible en la cara oculta.", personaje = "personaje01.png" }
+        },
+        felicitacion = "Elongast estuvo aquí pero ha escapado nuevamente.",
+    },
 ```
-Tener mucho cuidado con las comas y espacios. Deben quedar igual. Solo modificar lo que está entre comillas y el número del paso del recorrido (lo que está entre corchetes []).
+
+Nótese que se pueden agregar más pistas dentro de las llaves.
+
+También se puede agregar mensajes de fallos dentro de cada punto del recorrido.
+
+
+```lua
+      fallos = { "No che, estás perdido.", "Aquí nadie lo ha visto"},
+```
+
+Tener mucho cuidado con las comas y espacios. Deben quedar igual. Solo modificar lo que está entre comillas.
 
 ## Para programadores:
 

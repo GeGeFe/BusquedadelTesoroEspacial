@@ -4,7 +4,6 @@
 -- Licencia: GPL3
 
 function findelgo()
-   sel = celestia:getselection()
    distancia = sel:getposition():distanceto(observador:getposition())
    distpradio = distancia * 100 / sel:radius()
 -- Distancia porcentual a la que se considerará que se llegó al objetivo seleccionado según el tipo al que corresponde.
@@ -18,10 +17,31 @@ function findelgo()
    return distpradio <= distllegada 
 end
 
+function selecciona_pista()
+   totalpistas = #recorrido[paso].pistas -- Aquí puedo confiar en que si o si está declarada pistas con al menos un valor.
+   npista = math.random(1, totalpistas)
+end
+
+function orbitar()
+   duration = 20.0
+   orbitangle = math.rad(360.0)
+   axis_vector = celestia:newvector(0,1,0)
+-- Split up the orbit in 30 steps per second and determine the orbit steptime for each single step.
+-- The factor 0.75 is an estimate and may depend on the speed of your computer.
+   orbitsteps = 30 * duration
+   orbitsteptime = 0.75*duration/orbitsteps
+-- Create new rotation object of split up orbit angle around the specified axis.
+   rot = celestia:newrotation(axis_vector, orbitangle/orbitsteps)
+-- Actually execute the orbit.
+   for i = 1, orbitsteps do
+      observador:orbit(rot)
+      wait(orbitsteptime)
+   end
+end
+
 -- Semilla para que random sea más aleatorio.
 math.randomseed(celestia:gettime())
 
--- recorrido = {}
 observador = celestia:getobserver()
 
 pathname = celestia:getscriptpath():match("(.*[/\\])")
@@ -29,19 +49,23 @@ pathname = celestia:getscriptpath():match("(.*[/\\])")
 -- Aquí se indica a Celestia que muestre las órbitas. Puede comentarse la linea o reemplazar true por false si no se quieren mostrar las órbitas.
 celestia:setrenderflags{orbits = false}
 
-dofile(pathname .. "contenido.lua")
+-- Se carga el contenido.
+dofile(pathname .. "contenido02.lua")
 
 if ubicacioninicial then celestia:seturl(ubicacioninicial, observador) end
 
 -- Introducción
-celestia:overlay ( introduccion.pausa, 0, -0.8, 1, pathname .. "imagenes/" .. introduccion.imagen )
+celestia:overlay ( introduccion.pausa, 0, 0.7, 1, pathname .. "imagenes/" .. introduccion.imagen )
 celestia:print(introduccion.texto, introduccion.pausa, -1, 0, 2, 4)
 wait(introduccion.pausa)
 -- Fin de introducción
 
 -- Comienza el recorrido
 paso = 1
+npista = 1
+
 while paso < #recorrido + 1 do
+   sel = celestia:getselection()
    if findelgo() then 
 --    Se llegó a algún lado
       if sel:localname() == recorrido[paso].objetivo then
@@ -49,23 +73,30 @@ while paso < #recorrido + 1 do
          celestia:print(recorrido[paso].felicitacion, 10.0, 0, -1, 2, 4)
          wait(10.0)
          paso = paso + 1
+         if paso < #recorrido then selecciona_pista() end
          celestia:select("") -- Deselecciono objeto para que no se confunda con el siguiente objetivo.
       else
 --       Se llegó a otro lugar
          if recorrido[paso].fallos then
             celestia:print(recorrido[paso].fallos[math.random(1, #recorrido[paso].fallos)], 5.0, 0, -1, 2, 4)
             wait(5.0)
+            selecciona_pista()
          end
       end
    else
 --    Todavía no se llegó a un objetivo
-      totalpistas = #recorrido[paso].pistas -- Aquí puedo confiar en que si o si está declarada pistas con al menos un valor.
-      celestia:overlay ( 0.1, -0.8, -0.6, 1, pathname .. "imagenes/" .. recorrido[paso].pistas[1].personaje ) -- Me gusta más imagenes que images. Soy argentino y hablo español que tanto inglés.
-      celestia:print(recorrido[paso].pistas[1].texto, 1.0, -1, -1, 2, 4)
+      if observador:travelling() then
+         selecciona_pista()
+      else
+         celestia:overlay ( 1.0, -0.8, -0.5, 1, pathname .. "imagenes/" .. recorrido[paso].pistas[npista].personaje ) -- Me gusta más imagenes que images. Soy argentino y hablo español, que tanto inglés.
+         celestia:print(recorrido[paso].pistas[npista].texto, 1.0, -1, -1, 2, 4)
+      end
    end
    wait(0)
 end
 
 -- Final
-celestia:print(felicitacionfinal, 15.0, -1, 0, 2, 4)
-wait(15.0)
+celestia:overlay ( final.pausa, 0, -0.7, 1, pathname .. "imagenes/" .. final.imagen )
+celestia:print(final.texto, final.pausa, -1, 0, 2, 4)
+orbitar()
+wait(final.pausa)

@@ -26,6 +26,7 @@ recorrido = {
         pistas = {
             { texto = "Vendedor: Se llevó el abrigo más eficiente que encontró pero aun así insistía en que no sería suficiente.", personaje = "personaje03.png" }
         },
+        fallos = { "Nadie lo ha visto por aquí. Lo siento.", "Este es un lugar muy tranquilo." },
         felicitacion = "¡Me ha robado! Lo vi pero ya se fue.",
     }, {
         objetivo = "Júpiter",
@@ -38,6 +39,7 @@ recorrido = {
         pistas = {
             { texto = "Vendedor: Le encantaron los esquies. Son para deporte extremo sobre anillos de partículas de hielo.", personaje = "personaje05.png" }
         },
+        fallos = { "Usted no parece de la policía espacial.", "Me parece que está buscando mal." },
         felicitacion = "Estás muy cerca...",
     }
 }

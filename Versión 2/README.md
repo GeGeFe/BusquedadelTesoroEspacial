@@ -71,8 +71,8 @@ Se me ocurren muchas mejoras que se pueden hacer al script e invito a la comunid
 
 ```mermaid
 flowchart TD
-    Travelling{¿Travelling?} -->|true| Select{ ¿sel==nil?};
-    Travelling-->|false| Celestia;
+    Travelling{¿Travelling?} -->|false| Select{ ¿sel==nil?};
+    Travelling-->|true| Celestia;
     Select-->|true| Celestia;
     Select-->|false| Cerca{¿Cerca?};
     Cerca-->|false| Celestia;

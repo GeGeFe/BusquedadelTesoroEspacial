@@ -66,3 +66,37 @@ Se me ocurren muchas mejoras que se pueden hacer al script e invito a la comunid
 
 * Detección múltiple de lugares a los que llega el usuario para dar diferentes mensajes.
 * Algún sistema de edición menos técnico para los docentes u otras personas que quieran crear sus propios recorridos.
+
+# Diagrama de funcionamiento
+
+```d2
+¿Travelling?.shape: diamond
+Select: ¿sel == nil?
+Select.shape: diamond
+¿Cerca?.shape: diamond
+Anterior: "¿sel == objetivoanterior?"
+Anterior.shape: diamond
+Actual: "sel == objetivoactual"
+Actual.shape: diamond
+Fallo: Mostrar fallo
+Pista: Mostrar pista
+Siguiente: Siguiente objetivo
+¿Final?.shape: diamond
+
+¿Travelling? -> Select: false
+¿Travelling? -> Celestia: true
+Select -> Celestia: false
+Select -> ¿Cerca?: true
+¿Cerca? -> Celestia: false
+¿Cerca? -> Anterior: true
+Anterior -> Actual: false
+Anterior -> Pista: true
+Actual -> Fallo: false
+Actual -> Felicitación: true
+Felicitación -> ¿Final?
+¿Final? -> Escena Final: true
+¿Final? -> Siguiente: false
+Fallo -> Celestia
+Siguiente -> Celestia
+Pista -> Celestia
+```

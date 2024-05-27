@@ -3,7 +3,8 @@
 --
 -- Recorrido creado junto con los chicos del Club de Ciencias de la Biblioteca Popular Mafalda de Bahía Blanca
 --
-ubicacioninicial = "cel://Follow/Sol:Earth/2024-05-23T22:35:20.23001Z?x=Q8OpUrwR4P///////////w&y=11JcqR164f///////////w&z=/AwzpUTk/v///////////w&ow=0.39595327&ox=0.26502562&oy=-0.11482633&oz=-0.8716636&fov=36.87419&ts=1&ltd=0&p=0&rf=71095959&nrf=255&lm=2048&tsrc=0&ver=3"
+ubicacioninicial = "cel://Follow/Sol:Earth/2024-05-23T22:35:48.85773Z?x=Q8OpUrwR4P///////////w&y=11JcqR164f///////////w&z=/AwzpUTk/v///////////w&ow=0.39595327&ox=0.26502562&oy=-0.11482633&oz=-0.8716636&select=Sol:Earth&fov=36.87419&ts=1&ltd=0&p=0&rf=71095959&nrf=255&lm=2048&tsrc=0&ver=3"
+objetodeinicio = "Tierra"
 
 introduccion = {
     pausa = "20.0",

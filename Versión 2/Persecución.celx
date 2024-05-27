@@ -3,18 +3,18 @@
 -- Ideas incorporadas de: Lucho Ferrer y Leonardo GF
 -- Licencia: GPL3
 
-function findelgo()
+function cerca()
    distancia = sel:getposition():distanceto(observador:getposition())
    distpradio = distancia * 100 / sel:radius()
 -- Distancia porcentual a la que se considerará que se llegó al objetivo seleccionado según el tipo al que corresponde.
    if sel:type() == "planet" then
-      distllegada = 550
+      limite = 550
    elseif sel:type() == "star" then
-      distllegada = 10000
+      limite = 10000
    else
-      distllegada = 600
+      limite = 600
    end
-   return distpradio <= distllegada 
+   return distpradio <= limite 
 end
 
 function selecciona_pista()
@@ -22,8 +22,16 @@ function selecciona_pista()
    npista = math.random(1, totalpistas)
 end
 
+function selecciona_fallo()
+   if recorrido[paso].fallos then
+      nfallo = math.random(1, #recorrido[paso].fallos)
+   else
+      nfallo = nil
+   end
+end
+
 function orbitar()
-   duration = 20.0
+   duration = final.pausa
    orbitangle = math.rad(360.0)
    axis_vector = celestia:newvector(0,1,0)
 -- Split up the orbit in 30 steps per second and determine the orbit steptime for each single step.
@@ -39,20 +47,40 @@ function orbitar()
    end
 end
 
+function MostrarPistaActual()
+   celestia:overlay ( 1.0, -0.8, -0.5, 1, pathname .. "imagenes/" .. recorrido[paso].pistas[npista].personaje )
+   celestia:print(recorrido[paso].pistas[npista].texto, 1.0, -1, -1, 2, 4)
+end
+
+function ObjetivoActualAlcanzado()
+   celestia:print(recorrido[paso].felicitacion, 10.0, 0, -1, 2, 4)
+   wait(10.0)
+
+end
+
+function SiguienteObjetivo()
+   objetivoanterior = recorrido[paso].objetivo
+   paso = paso + 1
+   if paso < #recorrido then selecciona_pista() end
+end
+
+function MostrarFallo()
+   if nfallo then
+      celestia:print(recorrido[paso].fallos[nfallo], 1.0, 0, -1, 2, 4)
+      wait(1.0)
+   end
+end
+
 -- Semilla para que random sea más aleatorio.
 math.randomseed(celestia:gettime())
 
 observador = celestia:getobserver()
-
 pathname = celestia:getscriptpath():match("(.*[/\\])")
-
--- Aquí se indica a Celestia que muestre las órbitas. Puede comentarse la linea o reemplazar true por false si no se quieren mostrar las órbitas.
-celestia:setrenderflags{orbits = false}
 
 -- Se carga el contenido.
 dofile(pathname .. "contenido02.lua")
 
-if ubicacioninicial then celestia:seturl(ubicacioninicial, observador) end
+celestia:seturl(ubicacioninicial, observador) -- Siempre debe haber una ubicacion inicial para comenzar el juego desde ahí.
 
 -- Introducción
 celestia:overlay ( introduccion.pausa, 0, 0.7, 1, pathname .. "imagenes/" .. introduccion.imagen )
@@ -63,33 +91,38 @@ wait(introduccion.pausa)
 -- Comienza el recorrido
 paso = 1
 npista = 1
+memovi = false
+objetivoanterior = objetodeinicio
+--celestia:select(objetivoanterior)
 
 while paso < #recorrido + 1 do
    sel = celestia:getselection()
-   if findelgo() then 
---    Se llegó a algún lado
-      if sel:localname() == recorrido[paso].objetivo then
---       Coincide el objetivo con el lugar al que se llegó
-         celestia:print(recorrido[paso].felicitacion, 10.0, 0, -1, 2, 4)
-         wait(10.0)
-         paso = paso + 1
-         if paso < #recorrido then selecciona_pista() end
-         celestia:select("") -- Deselecciono objeto para que no se confunda con el siguiente objetivo.
-      else
---       Se llegó a otro lugar
-         if recorrido[paso].fallos then
-            celestia:print(recorrido[paso].fallos[math.random(1, #recorrido[paso].fallos)], 5.0, 0, -1, 2, 4)
-            wait(5.0)
-            selecciona_pista()
-         end
+   if observador:travelling() then -- ¿Travelling?
+      memovi = true
+      wait(0)
+   else -- No se está viajando
+      if memovi then
+         selecciona_pista() -- Como memovi elijo nuevamente una pista al azar de las disponibles para el objetivo actual.
+         selecciona_fallo() -- Como memovi también elijo otro fallo al azar.
+         memovi = false
       end
-   else
---    Todavía no se llegó a un objetivo
-      if observador:travelling() then
-         selecciona_pista()
-      else
-         celestia:overlay ( 1.0, -0.8, -0.5, 1, pathname .. "imagenes/" .. recorrido[paso].pistas[npista].personaje ) -- Me gusta más imagenes que images. Soy argentino y hablo español, que tanto inglés.
-         celestia:print(recorrido[paso].pistas[npista].texto, 1.0, -1, -1, 2, 4)
+      if sel then -- ¿Hay algo seleccionado?
+         if cerca() then -- Como algo está seleccionado se comprueva distancia a eso seleccionado.
+            if sel:localname() == objetivoanterior then -- ¿El objetivo seleccionado es el anterior?
+               MostrarPistaActual() -- Nos comunicamos con alguien del punto de partida y vemos la piasta que nos dá.
+            else -- El objeto seleccionado no es el objetivo anterior.
+               if sel:localname() == recorrido[paso].objetivo then -- ¿Llegamos al objetivo?
+                  ObjetivoActualAlcanzado() -- Alcanzamos el objetivo actual.
+                  SiguienteObjetivo() -- Actualizamos estado del recorrido.
+               else
+                  MostrarFallo() -- Llegamos un objeto que no es el objetivo.
+               end
+            end
+         else
+            wait(0)
+         end
+      else -- 
+         wait(0)
       end
    end
    wait(0)

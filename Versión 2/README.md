@@ -69,34 +69,23 @@ Se me ocurren muchas mejoras que se pueden hacer al script e invito a la comunid
 
 # Diagrama de funcionamiento
 
-```d2
-¿Travelling?.shape: diamond
-Select: ¿sel == nil?
-Select.shape: diamond
-¿Cerca?.shape: diamond
-Anterior: "¿sel == objetivoanterior?"
-Anterior.shape: diamond
-Actual: "sel == objetivoactual"
-Actual.shape: diamond
-Fallo: Mostrar fallo
-Pista: Mostrar pista
-Siguiente: Siguiente objetivo
-¿Final?.shape: diamond
-
-¿Travelling? -> Select: false
-¿Travelling? -> Celestia: true
-Select -> Celestia: false
-Select -> ¿Cerca?: true
-¿Cerca? -> Celestia: false
-¿Cerca? -> Anterior: true
-Anterior -> Actual: false
-Anterior -> Pista: true
-Actual -> Fallo: false
-Actual -> Felicitación: true
-Felicitación -> ¿Final?
-¿Final? -> Escena Final: true
-¿Final? -> Siguiente: false
-Fallo -> Celestia
-Siguiente -> Celestia
-Pista -> Celestia
+```mermaid
+flowchart TD
+    Travelling{¿Travelling?} -->|true| Select{ ¿sel==nil?};
+    Travelling-->|false| Celestia;
+    Select-->|true| Celestia;
+    Select-->|false| Cerca{¿Cerca?};
+    Cerca-->|false| Celestia;
+    Cerca-->|true| Anterior{¿sel == objetivoanterior?};
+    Anterior-->|false| Actual{¿sel == objetivoactual?};
+    Anterior-->|true| Pista[Mostrar pista];
+    Actual-->|false| Fallo[Mostrar fallo];
+    Actual-->|true| Felicitacion[Felicitación];
+    Felicitacion-->Final{¿Final?};
+    Final-->|false| Siguiente[Siguiente objetivo];
+    Final-->|true| EscenaFinal[Escena final];
+    Siguiente-->Celestia;
+    Pista-->Celestia;
+    Fallo-->Celestia;
+    EscenaFinal-->Celestia;
 ```

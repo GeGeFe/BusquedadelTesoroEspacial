@@ -53,7 +53,7 @@ function MostrarPistaActual()
 end
 
 function ObjetivoActualAlcanzado()
-   celestia:print(recorrido[paso].felicitacion, 10.0, 0, -1, 2, 4)
+   celestia:print(interlocutor .. ": " .. recorrido[paso].felicitacion, 10.0, 0, -1, 2, 4)
    wait(10.0)
 
 end
@@ -66,9 +66,13 @@ end
 
 function MostrarFallo()
    if nfallo then
-      celestia:print(recorrido[paso].fallos[nfallo], 1.0, 0, -1, 2, 4)
+      celestia:print(interlocutor .. ": " .. recorrido[paso].fallos[nfallo], 1.0, 0, -1, 2, 4)
       wait(1.0)
    end
+end
+
+function NombrealAzar()
+   interlocutor = nombres[math.random(1, #nombres)]
 end
 
 -- Semilla para que random sea más aleatorio.
@@ -77,8 +81,11 @@ math.randomseed(celestia:gettime())
 observador = celestia:getobserver()
 pathname = celestia:getscriptpath():match("(.*[/\\])")
 
+-- Cargo nombres para personajes secundarios.
+dofile(pathname .. "nombres.lua")
+
 -- Se carga el contenido.
-dofile(pathname .. "contenido02.lua")
+dofile(pathname .. "contenido03.lua")
 
 celestia:seturl(ubicacioninicial, observador) -- Siempre debe haber una ubicacion inicial para comenzar el juego desde ahí.
 
@@ -104,6 +111,7 @@ while paso < #recorrido + 1 do
       if memovi then
          selecciona_pista() -- Como memovi elijo nuevamente una pista al azar de las disponibles para el objetivo actual.
          selecciona_fallo() -- Como memovi también elijo otro fallo al azar.
+         NombrealAzar() -- Como memovi elijo interlocutor al azar.
          memovi = false
       end
       if sel then -- ¿Hay algo seleccionado?

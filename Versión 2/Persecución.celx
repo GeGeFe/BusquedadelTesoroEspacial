@@ -98,17 +98,19 @@ ubicacioninicial = "cel://Follow/Sol:Earth/2024-06-17T19:32:20.64205Z?x=6hfcEn0+
 observador = celestia:getobserver()
 pathname = celestia:getscriptpath():match("(.*[/\\])")
 
-if not sinsonido then
-   celestia:requestsystemaccess() -- Se solicita acceso al sistema para poder ejecutar el reproductor.
-   wait(0)
-end
+
 -- Cargo nombres para personajes secundarios.
 dofile(pathname .. "nombres.lua")
 
 -- Se carga el contenido.
-dofile(pathname .. "contenido03.lua")
+dofile(pathname .. "contenido01.lua")
 
 celestia:seturl(ubicacioninicial, observador) -- Siempre debe haber una ubicacion inicial para comenzar el juego desde ahí.
+
+if not sinsonido then
+   celestia:requestsystemaccess() -- Se solicita acceso al sistema para poder ejecutar el reproductor.
+   wait(0)
+end
 
 -- Introducción
 if not noimagen then

@@ -1,12 +1,15 @@
 -- Agregar aquí entre las comillas la ubicación de inicio (Navegación/Copy URL en Celestia)
 -- Comentar la linea si no se quiere especificar una ubicación inicial.
-ubicacioninicial = "cel://Follow/Sol:Earth/2024-05-13T00:56:24.52709Z?x=wLLgoSwX5f7//////////w&y=oJnQ6DzKfP///////////w&z=oE4OFIa2RQ&ow=-0.74599695&ox=0.084761225&oy=-0.6194552&oz=0.22930168&select=Sol:Earth&fov=37.01057&ts=1&ltd=0&p=0&rf=71161735&nrf=255&lm=2048&tsrc=0&ver=3"
+ubicacioninicial = "cel://Follow/Sol:Earth/2024-05-13T00:56:50.66836Z?x=qJ+9WEPTU////////////w&y=eBLZeb0lsP///////////w&z=euTgHSVtKg&ow=-0.74599695&ox=0.084761225&oy=-0.6194552&oz=0.22930168&select=Sol:Earth&fov=37.01057&ts=1&ltd=0&p=0&rf=71161735&nrf=255&lm=2048&tsrc=0&ver=3"
 objetodeinicio = "Tierra"
+sinsonido = false
+noimagen = false
 
 introduccion = {
     pausa = "10.0",
-    texto = "El ladrón intergaláctico Elongast ha robado los cohetes más poderosos de la tierra y ahora huye de la ley viajando por el sistema solar.\nTu misión es perseguirlo hasta atraparlo. Buena suerte",
-    imagen = "personaje06.png"
+    texto = "El ladrón intergaláctico Elongast ha robado los cohetes más poderosos de la tierra y ahora huye de la ley viajando\n por el sistema solar. Tu misión es perseguirlo hasta atraparlo. Buena suerte.",
+    imagen = "personaje06.png",
+    sonido = "orchestral music of suspense_tmp_gradio_74566935b1bed27d6205a874e4b43f16e040d2d3_tmp82tf202n.wav"
 }
 
 recorrido = {

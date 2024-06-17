@@ -17,7 +17,7 @@ Es decir, reemplazar el nombre del archivo que se indica entre comillas por el a
 ```
 
 El script funciona en **Celestia 1.7.0 para linux**. En  una instalación de una versión anterior no funcionó. También funciona bien en **Celestia 1.6.2.2 para Windows** (Gracias a Ricardo Tohmé por probarlo).
-No sé a partir de que version se incorporá la función para agregar imágenes en celestia (overlay) así que en versiones previas a la 1.7 no funciona el script si están las imágenes habilitadas. Para deshabilitarlas agregar al archivo de contenido la instrucción
+No sé a partir de que version se incorpora la función para agregar imágenes en celestia (overlay) así que en versiones previas a la 1.7 no funciona el script si están las imágenes habilitadas. Para deshabilitarlas agregar al archivo de contenido la instrucción
 
 ```lua
   noimagen = true

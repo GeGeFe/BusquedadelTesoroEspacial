@@ -30,22 +30,39 @@ function selecciona_fallo()
    end
 end
 
+-- Efectos especiales para el final
+
 function orbitar()
    duration = final.pausa
    orbitangle = math.rad(360.0)
    axis_vector = celestia:newvector(0,1,0)
--- Split up the orbit in 30 steps per second and determine the orbit steptime for each single step.
--- The factor 0.75 is an estimate and may depend on the speed of your computer.
    orbitsteps = 30 * duration
    orbitsteptime = 0.75*duration/orbitsteps
--- Create new rotation object of split up orbit angle around the specified axis.
    rot = celestia:newrotation(axis_vector, orbitangle/orbitsteps)
--- Actually execute the orbit.
    for i = 1, orbitsteps do
       observador:orbit(rot)
       wait(orbitsteptime)
    end
 end
+
+function alejarse()
+   observador:gotodistance(sel, sel:radius() * 100, final.pausa)
+end
+
+function fuegosartificiales()
+   for i = 1, final.pausa / 3, 1 do
+      celestia:overlay ( 1, 0, 0, 0.7, pathname .. "/imagenes/fuegosartificiales1.png" )
+      wait(0.5)
+      celestia:overlay ( 1, -0.5, 0, 0.7, pathname .. "/imagenes/fuegosartificiales2.png" )
+      wait(1)
+      celestia:overlay ( 2, 0.5, -0.5, 0.7, pathname .. "/imagenes/fuegosartificiales3.png" )
+      wait(0.5)
+      celestia:overlay ( 1, 0.5, 0.5, 0.7, pathname .. "/imagenes/fuegosartificiales4.png" )
+      wait(1)
+   end
+end
+
+-- Fin de efectos especiales para el final
 
 function MostrarPistaActual()
    if not noimagen then
@@ -103,7 +120,7 @@ pathname = celestia:getscriptpath():match("(.*[/\\])")
 dofile(pathname .. "nombres.lua")
 
 -- Se carga el contenido.
-dofile(pathname .. "contenido01.lua")
+dofile(pathname .. "contenidoprueba.lua")
 
 celestia:seturl(ubicacioninicial, observador) -- Siempre debe haber una ubicacion inicial para comenzar el juego desde ahí.
 
@@ -169,5 +186,14 @@ if not noimagen then
    celestia:overlay ( final.pausa, 0, -0.7, 1, pathname .. "imagenes/" .. final.imagen )
 end
 celestia:print(final.texto, final.pausa, -1, 0, 2, 4)
-orbitar()
-wait(final.pausa)
+
+if final.efecto == "orbitar" then
+   orbitar()
+   wait(final.pausa)
+elseif final.efecto == "fuegosartificiales" then
+   wait(1)
+   fuegosartificiales()
+elseif final.efecto == "alejarse" then
+   alejarse()
+   wait(final.pausa)
+end

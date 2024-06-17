@@ -30,7 +30,8 @@ Por cada punto del recorrido se debe agregar una linea como la siguiente:
 ```lua
     {   objetivo = "Objeto al cual llegar",
         pistas = { 
-            { texto = "Agente de viajes: Quería saber si había hotel disponible en la cara oculta.", personaje = "personaje01.png" }
+            { texto = "Agente de viajes: Quería saber si había hotel disponible en la cara oculta.", personaje = "personaje01.png" },
+            { texto = "Pirulo Perez: Estaba estudiando los pasos de la nave Chandrayaan-3.", personaje = "personaje07.png" }
         },
         felicitacion = "Elongast estuvo aquí pero ha escapado nuevamente.",
     },

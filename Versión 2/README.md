@@ -3,6 +3,7 @@
 Este es un script para el programa [Celestia](https://celestiaproject.space/) que permite realizar una "búsqueda del tesoro espacial" o una persecución similar a la del famoso juego ["¿Dónde está Carmen San Diego?"](https://www.clasicosbasicos.org/juegos/aventura-grafica/donde-esta-carmen-sandiego-buscala-por-todo-el-mundo).
 
 No es necesario instalar nada. Solo abrir Celestia y hacer clic en archivo/abrir script. Luego elegir el archivo Persecución.celx.
+En el caso de Celestia para Android se deben copiar los archivos a la carpeta "/Android/data/space.celestia.mobilecelestia/files/CelestiaResources/scripts/Tesoro" y luego ejecutarlo desde Favoritos dentro de Celestia.
 
 ## Para docentes o quienes quieran crear sus propios recorridos:
 
@@ -16,6 +17,11 @@ Es decir, reemplazar el nombre del archivo que se indica entre comillas por el a
 ```
 
 El script funciona en **Celestia 1.7.0 para linux**. En  una instalación de una versión anterior no funcionó. También funciona bien en **Celestia 1.6.2.2 para Windows** (Gracias a Ricardo Tohmé por probarlo).
+No sé a partir de que version se incorporá la función para agregar imágenes en celestia (overlay) así que en versiones previas a la 1.7 no funciona el script si están las imágenes habilitadas. Para deshabilitarlas agregar al archivo de contenido la instrucción
+
+```lua
+  noimagen = true
+```
 
 En caso de utilizarlo como búsqueda del tesoro la etiqueta *felicitacion* funciona como su nombre indica. Si se hace una persecución espacial, la *felicitacion* cambia de sentido y sirve para explicar como, a pesar de haber llegado al destino resolviendo la pista, el *ladrón espacial* se nos escapa y se va al siguiente destino.
 

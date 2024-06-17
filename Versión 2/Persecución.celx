@@ -48,7 +48,9 @@ function orbitar()
 end
 
 function MostrarPistaActual()
-   celestia:overlay ( 1.0, -0.8, -0.5, 1, pathname .. "imagenes/" .. recorrido[paso].pistas[npista].personaje )
+   if not noimagen then
+      celestia:overlay ( 1.0, -0.8, -0.5, 1, pathname .. "imagenes/" .. recorrido[paso].pistas[npista].personaje )
+   end
    celestia:print(recorrido[paso].pistas[npista].texto, 1.0, -1, -1, 2, 4)
 end
 
@@ -75,6 +77,8 @@ function NombrealAzar()
    interlocutor = nombres[math.random(1, #nombres)]
 end
 
+noimagen = false -- Se declara por defecto que van a mostrarse imágenes.
+
 -- Semilla para que random sea más aleatorio.
 math.randomseed(celestia:gettime())
 
@@ -93,7 +97,9 @@ end
 celestia:seturl(ubicacioninicial, observador) -- Siempre debe haber una ubicacion inicial para comenzar el juego desde ahí.
 
 -- Introducción
-celestia:overlay ( introduccion.pausa, 0, 0.7, 1, pathname .. "imagenes/" .. introduccion.imagen )
+if not noimagen then
+   celestia:overlay ( introduccion.pausa, 0, 0.7, 1, pathname .. "imagenes/" .. introduccion.imagen )
+end
 celestia:print(introduccion.texto, introduccion.pausa, -1, 0, 2, 4)
 wait(introduccion.pausa)
 -- Fin de introducción
@@ -140,7 +146,9 @@ while paso < #recorrido + 1 do
 end
 
 -- Final
-celestia:overlay ( final.pausa, 0, -0.7, 1, pathname .. "imagenes/" .. final.imagen )
+if not noimagen then
+   celestia:overlay ( final.pausa, 0, -0.7, 1, pathname .. "imagenes/" .. final.imagen )
+end
 celestia:print(final.texto, final.pausa, -1, 0, 2, 4)
 orbitar()
 wait(final.pausa)

@@ -8,8 +8,8 @@ ubicacioninicial = "cel://Follow/Sol:Saturn/2024-05-23T22:38:34.89606Z?x=4KxiJGc
 objetodeinicio = "Saturno"
 
 introduccion = {
-    pausa = "20.0",
-    texto = "Toto: Cuanta tristeza. ¿Dónde estás Mimas? Oh. ¿Quiénes son ustedes? ¡Estoy deseseperado! No encuentro a mi perdíz. Se llama Mimas. ¿La han visto?",
+    pausa = "25.0",
+    texto = "Toto: Cuanta tristeza. ¿Dónde estás Mimas? Oh. ¿Quiénes son ustedes? ¡Estoy deseseperado! No encuentro a mi perdíz.\nSe llama Mimas. ¿La han visto?",
     imagen = "Toto.png"
 }
 
@@ -37,7 +37,7 @@ recorrido = {
     }, {
         objetivo = "Luna",
         pistas = {
-            { texto = "Angie: ¡Es muy inteligente! Solita fue hasta el teletransportador y presionó la tecla para ir al satelite natural que orbita la tierra.", personaje = "personaje12.png" }
+            { texto = "Angie: ¡Es muy inteligente! Solita fue hasta el teletransportador y presionó la tecla para ir al satelite natural\nque orbita la tierra.", personaje = "personaje12.png" }
         },
         fallos = { "No me gusta mucho este lugar. ¿A usted?", "Recién llegué. No vi nada" },
         felicitacion = "Parece un animal entrenado. Me miró fijo y se fue.",
@@ -47,14 +47,14 @@ recorrido = {
             { texto = "Parece que le gustan las lunas... o los círculos. Estaba como hipnotizada mirando los planetas con más lunas.", personaje = "personaje15.png" }
         },
         fallos = { "¡Que está haciendo aquí! Esta es una zona prohibida.", "¿Cómo dice? No escucho bien. ¡¡¡¿Cómo?!!!" },
-        felicitacion = "¿Que vista más hermosa no le parece? Aquí tenemos muchas lunas.",
+        felicitacion = "¿Que vista más hermosa no le parece?\nAquí tenemos muchas lunas.",
     }, {
         objetivo = "Mercurio",
         pistas = {
             { texto = "Melina: ¿Escuchó la noticia? ¡Que gracioso! Una perdíz intentando anidar en el crater Caloris Planitia. ¡Ja ja!", personaje = "personaje16.png" }
         },
         fallos = { "¿No escuchó bien la noticia? Aquí no es.", "Debería estudiar mejor geografía interplanetaria." },
-        felicitacion = "¡Yo la encontré, si señor! En seguida llamé a la televisión galáctica\npara que la vieran. Es muy graciosa.",
+        felicitacion = "¡Yo la encontré, si señor! En seguida llamé a la televisión\ngaláctica para que la vieran. Es muy graciosa.",
     }
 }
 

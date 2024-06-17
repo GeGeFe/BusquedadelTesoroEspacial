@@ -51,7 +51,7 @@ recorrido = {
     }, {
         objetivo = "Fobos",
         pistas = {
-            { texto = "Alex_1: Cuando le mostré la foto se rió y le pareció que eso no podía ser una luna de Marte sino una horrible piedra.", personaje = "Gatito05.png" }
+            { texto = "Alex_1: Cuando le mostré la foto se rió y le pareció que eso no podía ser una luna de Marte sino\nuna horrible piedra.", personaje = "Gatito05.png" }
         },
         fallos = { "Creo que un ratón tiene más instinto.", "Me parece que están buscando mal." },
         felicitacion = "Se va cada vez más lejos. ¡Apúrense!",

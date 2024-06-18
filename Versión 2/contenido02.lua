@@ -75,5 +75,6 @@ recorrido = {
 final = {
     pausa = "20.0",
     texto = "¡Felicitaciones!\n\nJuan: Gracias por su ayuda. Ahora podré ir a investigar el nuevo sistema estelar. ¡Lo llamaré Juansescu!\n\nJuan fue nombrado presidente y el criminal gato a rayas fue encarcelado.",
-    imagen = "Gatito Tras las rejas.png"
+    imagen = "Gatito Tras las rejas.png",
+    efecto = "alejarse"
 }

@@ -60,5 +60,6 @@ recorrido = {
 final = {
     pausa = "20.0",
     texto = "Toto: ¡Gracias a ustedes pude reencontrarme con Mimas! ¡Gracias!",
-    imagen = "Toto y Mimas.png"
+    imagen = "Toto y Mimas.png",
+    efecto = "orbitar"
 }

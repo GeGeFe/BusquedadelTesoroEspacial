@@ -15,7 +15,8 @@ introduccion = {
 recorrido = {
     {   objetivo = "Luna",
         pistas = { 
-            { texto = "Agente de viajes: Quería saber si había hotel disponible en la cara oculta.", personaje = "personaje01.png" }
+            { texto = "Agente de viajes: Quería saber si había hotel disponible en la cara oculta.", personaje = "personaje01.png" },
+            { texto = "Pirula Perez: Estaba estudiando los pasos de la nave Chandrayaan-3.", personaje = "personaje08.png" }
         },
         felicitacion = "Elongast estuvo aquí pero ha escapado nuevamente.",
     }, {
@@ -52,5 +53,5 @@ final = {
     pausa = "20.0",
     texto = "Luego de una difícil persecución sobre los anillos de Saturno lograste atrapar a Elongast. ¡Felicitaciones!\nLa policía espacial está muy agradecida por tu excelente trabajo.",
     imagen = "",
-    efecto = "fuegosartificiales"
+    efecto = "orbitar"
 }

@@ -13,15 +13,32 @@ Para modificar los recorridos hay que editar el archivo contenido.lua o copiarlo
 
 Es decir, reemplazar el nombre del archivo que se indica entre comillas por el archivo nuevo.
 ```lua
-  (pathname .. "contenido.lua")
+   dofile(pathname .. "contenidoprueba.lua") -- Reemplazar lo que está entre comillas por el archivo de contenido correspondiente.
 ```
 
+En linux en cambio se puede usar el siguiente script en la linea de comandos.
+
+```bash
+  ./Persecución.sh contenido.lua
+```
 El script funciona en **Celestia 1.7.0 para linux**. En  una instalación de una versión anterior no funcionó. También funciona bien en **Celestia 1.6.2.2 para Windows** (Gracias a Ricardo Tohmé por probarlo).
 No sé a partir de que version se incorpora la función para agregar imágenes en celestia (overlay) así que en versiones previas a la 1.7 no funciona el script si están las imágenes habilitadas. Para deshabilitarlas agregar al archivo de contenido la instrucción
 
 ```lua
   noimagen = true
 ```
+
+El sonido funciona solo en linux por ahora. Para que funcione en windows cambiar la linea
+```lua
+  sinsonido = false
+```
+
+por
+
+```lua
+  sinsonido = true
+```
+en el archivo de contenido correspondiente.
 
 En caso de utilizarlo como búsqueda del tesoro la etiqueta *felicitacion* funciona como su nombre indica. Si se hace una persecución espacial, la *felicitacion* cambia de sentido y sirve para explicar como, a pesar de haber llegado al destino resolviendo la pista, el *ladrón espacial* se nos escapa y se va al siguiente destino.
 

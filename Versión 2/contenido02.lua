@@ -32,7 +32,7 @@ recorrido = {
             { texto = "Lucimar_2: Siempre quizo conocer ese planeta tan brillante que solemos confundir con una estrella.", personaje = "Gatito02.png" }
         },
         fallos = { "Parece que tus bigotes están fallando.", "Por aquí no ha pasado."},
-        felicitacion = "Ese gato me robó una cámara a mi también. ¡Si, es un gato rayado!",
+        felicitacion = "Ese gato me robó una cámara a mi también.\n¡Si, es un gato rayado!",
     }, {
         objetivo = "Sol",
         pistas = {
@@ -47,7 +47,7 @@ recorrido = {
             { texto = "Thiago_2: Prometió llevarnos a dar una vuelta en el huracan gigante.", personaje = "Gatito04.png" }
         },
         fallos = { "Me parece que te distrajiste mirando la tele.", "Aquí no ha pasado nadia con esa descripción." },
-        felicitacion = "¡Es un mentiroso! Nos hizo pagarle el pasaje hasta aquí y después desapareció.",
+        felicitacion = "¡Es un mentiroso! Nos hizo pagarle el pasaje hasta aquí\ny después desapareció.",
     }, {
         objetivo = "Fobos",
         pistas = {

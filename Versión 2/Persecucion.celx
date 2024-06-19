@@ -125,7 +125,7 @@ dofile(pathname .. "nombres.lua")
 contenido = os.getenv("contenidocelestia")
 wait(0)
 if (contenido == "") or (contenido == nil) then
-   dofile(pathname .. "contenidoprueba.lua") -- Reemplazar lo que está entre comillas por el archivo de contenido correspondiente.
+   dofile(pathname .. "contenido01.lua") -- Reemplazar lo que está entre comillas por el archivo de contenido correspondiente.
 else
    dofile(pathname .. contenido)
 end

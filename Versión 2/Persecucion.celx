@@ -97,7 +97,9 @@ end
 function play(sonido, duracion)
    if not sinsonido then
       archivo = pathname .. "sonidos/" .. sonido
-      respuestasistema = os.execute("ffplay \"" .. archivo .. "\" -nodisp -autoexit -t " .. duracion .. "&")
+      if sistemaoperativo == "Linux" then
+         respuestasistema = os.execute("ffplay \"" .. archivo .. "\" -nodisp -autoexit -t " .. duracion .. "&")
+      end
    end
 end
 
@@ -123,6 +125,7 @@ dofile(pathname .. "nombres.lua")
 
 -- Se carga el contenido.
 contenido = os.getenv("contenidocelestia")
+sistemaoperativo = os.getenv("so")
 wait(0)
 if (contenido == "") or (contenido == nil) then
    dofile(pathname .. "contenido01.lua") -- Reemplazar lo que está entre comillas por el archivo de contenido correspondiente.

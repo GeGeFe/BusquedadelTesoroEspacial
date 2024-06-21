@@ -99,6 +99,8 @@ function play(sonido, duracion)
       archivo = pathname .. "sonidos/" .. sonido
       if sistemaoperativo == "Linux" then
          respuestasistema = os.execute("ffplay \"" .. archivo .. "\" -nodisp -autoexit -t " .. duracion .. "&")
+      elseif sistemaoperativo == "Windows" then
+         respuestasistema = os.execute("start /B ffplay \"" .. archivo .. "\" -nodisp -autoexit -t " .. duracion)
       end
    end
 end

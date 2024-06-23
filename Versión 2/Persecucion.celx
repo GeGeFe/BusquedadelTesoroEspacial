@@ -72,9 +72,12 @@ function MostrarPistaActual()
 end
 
 function ObjetivoActualAlcanzado()
-   celestia:print(interlocutor .. ":\n" .. recorrido[paso].felicitacion, 10.0, 0, -1, 2, 4)
+   if interlocutor then
+      celestia:print(interlocutor .. ":\n" .. recorrido[paso].felicitacion, 10.0, 0, -1, 2, 4)
+   else
+      celestia:print(recorrido[paso].felicitacion, 10.0, 0, -1, 2, 4)
+   end
    wait(10.0)
-
 end
 
 function SiguienteObjetivo()
@@ -85,13 +88,19 @@ end
 
 function MostrarFallo()
    if nfallo then
-      celestia:print(interlocutor .. ":\n" .. recorrido[paso].fallos[nfallo], 1.0, 0, -1, 2, 4)
+      if interlocutor then
+         celestia:print(interlocutor .. ":\n" .. recorrido[paso].fallos[nfallo], 1.0, 0, -1, 2, 4)
+      else
+         celestia:print(recorrido[paso].fallos[nfallo], 1.0, 0, -1, 2, 4)
+      end
       wait(1.0)
    end
 end
 
 function NombrealAzar()
-   interlocutor = nombres[math.random(1, #nombres)]
+   if nombres then
+      interlocutor = nombres[math.random(1, #nombres)]
+   end
 end
 
 function play(sonido, duracion)
@@ -122,9 +131,6 @@ pathname = celestia:getscriptpath():match("(.*[/\\])")
 celestia:requestsystemaccess() -- Se solicita acceso al sistema.
 wait(0)
 
--- Cargo nombres para personajes secundarios.
-dofile(pathname .. "nombres.lua")
-
 -- Se carga el contenido.
 contenido = os.getenv("contenidocelestia")
 sistemaoperativo = os.getenv("so")
@@ -135,6 +141,12 @@ else
    dofile(pathname .. contenido)
 end
 
+-- Cargo nombres para personajes secundarios.
+if (nombresalazar == "" or nombresalazar == nil) then
+else
+   dofile(pathname .. "nombres/" .. nombresalazar)
+end
+
 celestia:seturl(ubicacioninicial, observador) -- Siempre debe haber una ubicacion inicial para comenzar el juego desde ahí.
 
 -- Introducción
@@ -143,7 +155,9 @@ if not noimagen then
 end
 celestia:print(introduccion.texto, introduccion.pausa, -1, 0, 2, 4)
 if not sinsonido then
-   play(introduccion.sonido, introduccion.pausa)
+   if introduccion.sonido then
+      play(introduccion.sonido, introduccion.pausa)
+   end
 end
 wait(introduccion.pausa)
 -- Fin de introducción
@@ -194,7 +208,11 @@ if not noimagen then
    celestia:overlay ( final.pausa, 0, -0.7, 1, pathname .. "imagenes/" .. final.imagen )
 end
 celestia:print(final.texto, final.pausa, -1, 0, 2, 4)
-
+if not sinsonido then
+   if final.sonido then
+      play(final.sonido, final.pausa)
+   end
+end
 if final.efecto == "orbitar" then
    orbitar()
    wait(final.pausa)

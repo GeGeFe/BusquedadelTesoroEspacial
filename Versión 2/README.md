@@ -9,18 +9,22 @@ En el caso de Celestia para Android se deben copiar los archivos a la carpeta "/
 
 [Video explicativo](https://youtu.be/PUFqwxdwHwg)
 
-Para modificar los recorridos hay que editar el archivo contenido.lua o copiarlo en otro archivo y llamar el nuevo archivo desde la linea correspondiente del archivo Persecución.celx
+Para crear nuevos recorridos/persecuciones se puede utilizar la página web que está dentro de la carpeta CrearRecorridos.
 
-Es decir, reemplazar el nombre del archivo que se indica entre comillas por el archivo nuevo.
-```lua
-   dofile(pathname .. "contenidoprueba.lua") -- Reemplazar lo que está entre comillas por el archivo de contenido correspondiente.
-```
+Para ejecutar luego el recorrido creado debe copiarlo en la carpeta en la que se encuentra Persecucion.celx y ejecutar el script de la siguiente forma.
 
-En linux en cambio se puede usar el siguiente script en la linea de comandos.
-
+(en Linux)
 ```bash
   ./Persecución.sh contenido.lua
 ```
+
+(en Windows)
+```powershell
+  ./Persecución.bat contenido.lua
+```
+
+Los archivos de imagenes y sonidos deben guardarse en la carpeta de imagenes y sonidos del scrpit Persecucion.celx
+
 El script funciona en **Celestia 1.7.0 para linux**. En  una instalación de una versión anterior no funcionó. También funciona bien en **Celestia 1.6.2.2 para Windows** (Gracias a Ricardo Tohmé por probarlo).
 No sé a partir de que version se incorpora la función para agregar imágenes en celestia (overlay) así que en versiones previas a la 1.7 no funciona el script si están las imágenes habilitadas. Para deshabilitarlas agregar al archivo de contenido la instrucción
 
@@ -28,42 +32,9 @@ No sé a partir de que version se incorpora la función para agregar imágenes e
   noimagen = true
 ```
 
-El sonido funciona solo en linux por ahora. Para que funcione en windows cambiar la linea
-```lua
-  sinsonido = false
-```
-
-por
-
-```lua
-  sinsonido = true
-```
-en el archivo de contenido correspondiente.
-
 En caso de utilizarlo como búsqueda del tesoro la etiqueta *felicitacion* funciona como su nombre indica. Si se hace una persecución espacial, la *felicitacion* cambia de sentido y sirve para explicar como, a pesar de haber llegado al destino resolviendo la pista, el *ladrón espacial* se nos escapa y se va al siguiente destino.
 
-Por cada punto del recorrido se debe agregar una linea como la siguiente:
-
-```lua
-    {   objetivo = "Objeto al cual llegar",
-        pistas = { 
-            { texto = "Agente de viajes: Quería saber si había hotel disponible en la cara oculta.", personaje = "personaje01.png" },
-            { texto = "Pirulo Perez: Estaba estudiando los pasos de la nave Chandrayaan-3.", personaje = "personaje07.png" }
-        },
-        felicitacion = "Elongast estuvo aquí pero ha escapado nuevamente.",
-    },
-```
-
-Nótese que se pueden agregar más pistas dentro de las llaves.
-
-También se puede agregar mensajes de fallos dentro de cada punto del recorrido.
-
-
-```lua
-      fallos = { "No che, estás perdido.", "Aquí nadie lo ha visto"},
-```
-
-Tener mucho cuidado con las comas y espacios. Deben quedar igual. Solo modificar lo que está entre comillas.
+Por ahora los recorridos/persecuciones creados no se pueden modificar facilmente (Hay que editar manualmente el archivo .lua creado).
 
 ## Para programadores:
 
@@ -89,7 +60,7 @@ También me sirvió ver los propios script que trae el programa para comprender 
 Se me ocurren muchas mejoras que se pueden hacer al script e invito a la comunidad a colaborar. Entre ellas están:
 
 * Detección múltiple de lugares a los que llega el usuario para dar diferentes mensajes.
-* Algún sistema de edición menos técnico para los docentes u otras personas que quieran crear sus propios recorridos.
+* Mejorar el sistema de creación de recorridos/persecuciones.
 
 # Diagrama de funcionamiento
 

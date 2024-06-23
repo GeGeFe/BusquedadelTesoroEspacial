@@ -3,6 +3,7 @@
 --
 -- Recorrido creado junto con los chicos del Club de Ciencias de la Biblioteca Popular Mafalda de Bahía Blanca
 --
+nombresalazar = "famososciencia.lua"
 ubicacioninicial = "cel://Follow/Sol:Saturn/2024-05-23T22:38:34.89606Z?x=4KxiJGcS7P3//////////w&y=YOZYe0e2e/3//////////w&z=QPuyq4HRkgU&ow=0.09728264&ox=-0.19204986&oy=-0.14129645&oz=0.96627545&select=Sol:Saturn&fov=36.87419&ts=1&ltd=0&p=0&rf=71095959&nrf=255&lm=2048&tsrc=0&ver=3"
 objetodeinicio = "Saturno"
 

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generador de recorridos/persecuciones para Celestia</title>
+</head>
+<body>
+    <h1>Generador de recorridos/persecuciones para Celestia</h1>
+    <form id="formularioGenerador">
+        <h2> Configuración general </h2> <br>
+        <label for="sinSonido">Sin Sonido:</label>
+        <input type="checkbox" id="sinSonido" name="sinSonido">
+        <label for="noImagen">Sin Imagen:</label>
+        <input type="checkbox" id="noImagen" name="noImagen"><br>
+        <br>
+        <label for="nombresalazar">Archivo de nombres al azar: (ejemplo famososciencia.lua) </label>
+        <input type="file" id="nombresalazar" name="nombresalazar" accept=".lua"><br>
+        <br>
+        Guarde una vez completado todo el recorrido.
+        <button type="submit">Guardar</button>
+
+        <hr>
+        <h2> Introducción </h2><br>
+        <label for="ubicacionInicial">Ubicación Inicial:</label><br>
+        <input type="text" id="ubicacionInicial" name="ubicacionInicial" size="100" placeholder="Copiar de Celestia en Navegación/Copiar URL."><br>
+        <label for="objetoDeInicio">Objeto de Inicio:</label><br>
+        <input type="text" id="objetoDeInicio" name="objetoDeInicio" required><br>
+        <label for="introduccionTexto">Texto de Introducción:</label><br>
+        <input type="text" id="introduccionTexto" name="introduccionTexto" size="100" placeholder="Indique el texto de introducción. Puede utilizar \ seguido de la letra n, para generar un salto de linea."><br>
+        <label for="introduccionPausa">Pausa inicial:</label><br>
+        <input type="number" id="introduccionPausa" name="introduccionPausa" step="0.1"><br>
+        Las imágenes y sonidos deben copiarse manualmente a la carpeta "imagenes" y "sonidos" respectivamente para que el script los encuentre.<br>
+        <label for="introduccionImagen"> Imagen inicial </label><br>
+        <input type="file" id="introduccionImagen" name="introduccionImagen" accept="image/*"><br>
+        <label for="introduccionSonido"> Sonido inicial </label><br>
+        <input type="file" id="introduccionSonido" name="introduccionSonido" accept="audio/*"><br>
+        <hr>
+        <h2> Final </h2><br>
+        <label for="finalTexto">Felicitación final:</label><br>
+        <input type="text" id="finalTexto" name="finalTexto" size="100" placeholder="Indique un texto para finalizar la historia/recorrido. Puede utilizar \ seguido de la letra n, para generar un salto de linea."><br>
+        <label for="finalPausa">Pausa final:</label><br>
+        <input type="number" id="finalPausa" name="finalPausa" step="0.1"><br>
+        <label for="finalImagen"> Imagen final </label><br>
+        <input type="file" id="finalImagen" name="finalImagen" accept="image/*"><br>
+        <label for="finalSonido"> Sonido final </label><br>
+        <input type="file" id="finalSonido" name="finalSonido" accept="audio/*"><br>
+        <fieldset>
+            <legend>Seleccione un efecto especial para el final:</legend>
+
+            <div>
+                <input type="radio" id="fuegosartificiales" name="finalEfecto" value="fuegosartificiales" checked />
+                <label for="fuegosartificiales">Fuegos artificiales</label>
+            </div>
+
+            <div>
+                <input type="radio" id="orbitar" name="finalEfecto" value="orbitar" />
+                <label for="orbitar">Orbitar alrededor del último destino</label>
+            </div>
+
+            <div>
+                <input type="radio" id="alejarse" name="finalEfecto" value="alejarse" />
+                <label for="alejarse">Alejarse</label>
+            </div>
+  
+            <div>
+                <input type="radio" id="nada" name="finalEfecto" value="" />
+                <label for="nada">Sin efecto</label>
+            </div>
+        </fieldset>
+
+        <hr>
+        <h2> Puntos del recorrido/persecución </h2><br>
+        <button type="button" onclick="agregarCampo()">Agregar paso</button><br><br>
+    </form>
+
+    <script src="genera.js"></script>
+</body>
+</html>

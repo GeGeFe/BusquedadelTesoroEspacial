@@ -9,7 +9,7 @@ introduccion = {
     pausa = "12.0",
     texto = "El ladrón intergaláctico Elongast ha robado los cohetes más poderosos de la tierra y ahora huye de la ley viajando\n por el sistema solar. Tu misión es perseguirlo hasta atraparlo. Buena suerte.",
     imagen = "personaje06.png",
-    sonido = "orchestral music of suspense_tmp_gradio_74566935b1bed27d6205a874e4b43f16e040d2d3_tmp82tf202n.mp3"
+    sonido = "MusicGen01.mp3"
 }
 
 recorrido = {
@@ -53,5 +53,6 @@ final = {
     pausa = "20.0",
     texto = "Luego de una difícil persecución sobre los anillos de Saturno lograste atrapar a Elongast. ¡Felicitaciones!\nLa policía espacial está muy agradecida por tu excelente trabajo.",
     imagen = "",
-    efecto = "orbitar"
+    efecto = "orbitar",
+    sonido = "MusicGen02.mp3"
 }

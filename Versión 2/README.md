@@ -13,6 +13,8 @@ Para crear nuevos recorridos/persecuciones se puede utilizar la página web que 
 
 Para ejecutar luego el recorrido creado debe copiarlo en la carpeta en la que se encuentra Persecucion.celx y ejecutar el script de la siguiente forma.
 
+Reemplazar contenido.lua por el archivo generado por el creador de contenidos o por el contenido deseado.
+
 (en Linux)
 ```bash
   ./Persecución.sh contenido.lua
@@ -23,7 +25,7 @@ Para ejecutar luego el recorrido creado debe copiarlo en la carpeta en la que se
   ./Persecución.bat contenido.lua
 ```
 
-Los archivos de imagenes y sonidos deben guardarse en la carpeta de imagenes y sonidos del scrpit Persecucion.celx
+Los archivos de imagenes y sonidos deben guardarse en la carpeta de imágenes y sonidos del script Persecucion.celx
 
 El script funciona en **Celestia 1.7.0 para linux**. En  una instalación de una versión anterior no funcionó. También funciona bien en **Celestia 1.6.2.2 para Windows** (Gracias a Ricardo Tohmé por probarlo).
 No sé a partir de que version se incorpora la función para agregar imágenes en celestia (overlay) así que en versiones previas a la 1.7 no funciona el script si están las imágenes habilitadas. Para deshabilitarlas agregar al archivo de contenido la instrucción

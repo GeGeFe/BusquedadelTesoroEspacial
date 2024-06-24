@@ -4,6 +4,7 @@ ubicacioninicial = "cel://Follow/Sol:Earth/2024-05-13T00:56:50.66836Z?x=qJ+9WEPT
 objetodeinicio = "Tierra"
 sinsonido = false
 noimagen = false
+nombresalazar = "profesioneschistosas.lua"
 
 introduccion = {
     pausa = "12.0",

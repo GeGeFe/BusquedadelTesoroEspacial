@@ -59,7 +59,7 @@ recorrido = {
     }, {
         objetivo = "Dione",
         pistas = {
-            { texto = "Juli: Quería conocer la luna más alejada de Saturno", personaje = "Gatito07.png" }
+            { texto = "Juli: Quería conocer la luna interior más alejada de Saturno", personaje = "Gatito07.png" }
         },
         fallos = { "Deberias investigar mejor." },
         felicitacion = "Creo que si lo he visto. ¿Un gato a rayas dijo? Si, creo que lo ví.",

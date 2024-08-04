@@ -18,7 +18,7 @@ recorrido = {
         pistas = { 
             { texto = "Juan: El último lugar en que la usé fue en la estación internacional.", personaje = "Juan.png" }
         },
-        fallos = { "¿Una cámara. No, aquí nadie la ha visto."},
+        fallos = { "¿Una cámara? No, aquí nadie la ha visto."},
         felicitacion = "Esa cámara la vi. Se la llevó un gato a rayas.",
     }, {
         objetivo = "Marte",

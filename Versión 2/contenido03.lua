@@ -9,7 +9,7 @@ objetodeinicio = "Saturno"
 
 introduccion = {
     pausa = "25.0",
-    texto = "Toto: Cuanta tristeza. ¿Dónde estás Mimas? Oh. ¿Quiénes son ustedes? ¡Estoy deseseperado! No encuentro a mi perdíz.\nSe llama Mimas. ¿La han visto?",
+    texto = "Toto: Cuanta tristeza. ¿Dónde estás Mimas? Oh. ¿Quiénes son ustedes? ¡Estoy deseseperado! No encuentro a\n mi perdíz. Se llama Mimas. ¿La han visto?",
     imagen = "Toto.png"
 }
 
@@ -25,7 +25,7 @@ recorrido = {
         pistas = { 
             { texto = "Que hermoso animalito. Parecía con frio así que lo envié a un baño de calor en nuestro astro más brillante.\nSeguro le da mucha energía también.", personaje = "personaje10.png" }
         },
-        fallos = { "¿Tanto alboroto por un bicho? Yo no sé nada. No me moleste."},
+        fallos = { "¿Tanto alboroto por un bicho? Yo no sé nada.\nNo me moleste."},
         felicitacion = "Si la ví. Parecía asustada.",
     }, {
         objetivo = "Venus",

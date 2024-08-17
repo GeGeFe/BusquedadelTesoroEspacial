@@ -26,7 +26,7 @@ recorrido = {
     
     {   objetivo = "Marte",
         pistas = {
-            { texto = "Durante el juego esto sería una pista. Ahora es una indicación.\nPrecione 4 y luego la tecla g para dirigirte a Marte, el cuarto planeta del sistema solar.", personaje = "" },
+            { texto = "Durante el juego esto sería una pista. Ahora es una indicación.\nPresione 4 y luego la tecla g para dirigirte a Marte, el cuarto planeta del sistema solar.", personaje = "" },
         },
         fallos = { "La tecla 4 y luego la tecla g." },
         felicitacion = "Muy bien. Hemos llegado a Marte."

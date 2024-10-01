@@ -114,6 +114,18 @@ function play(sonido, duracion)
    end
 end
 
+function MostrarCreditos(texto, velocidad)
+   if texto ~= nil then
+       _, lineas = texto:gsub("\n","")
+       for offsetvertical = lineas * -3, lineas *3 do
+           celestia:print(texto, velocidad, -1, 0, 0, offsetvertical)
+           wait(0.1)
+       end
+       celestia:requestkeyboard(false)         
+       return nil
+   end
+end
+
 -- Semilla para que random sea más aleatorio.
 math.randomseed(celestia:gettime())
 
@@ -222,4 +234,8 @@ elseif final.efecto == "fuegosartificiales" then
 elseif final.efecto == "alejarse" then
    alejarse()
    wait(final.pausa)
+end
+
+if creditos ~= nil then
+   MostrarCreditos(creditos.texto, creditos.velocidad)
 end

@@ -3,6 +3,11 @@
 -- Ideas incorporadas de: Lucho Ferrer y Leonardo GF
 -- Licencia: GPL3
 
+function celestia_keyboard_callback(tecla)
+   ultimatecla = tecla
+   return true
+end
+
 function cerca()
    distancia = sel:getposition():distanceto(observador:getposition())
    distpradio = distancia * 100 / sel:radius()
@@ -124,6 +129,17 @@ function MostrarCreditos(texto, velocidad)
        celestia:requestkeyboard(false)         
        return nil
    end
+end
+
+function printlargo(texto, pausa, horig, vorig, hoff, voff)
+   ultimatecla = nil
+   celestia:requestkeyboard(true)
+   while ultimatecla == nil do
+       celestia:print(texto, pausa, horig, vorig, hoff, voff)
+       wait(0.1)
+   end
+   celestia:requestkeyboard(false)         
+   return nil
 end
 
 -- Semilla para que random sea más aleatorio.

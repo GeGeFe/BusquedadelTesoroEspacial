@@ -78,11 +78,13 @@ end
 
 function ObjetivoActualAlcanzado()
    if interlocutor then
-      celestia:print(interlocutor .. ":\n" .. recorrido[paso].felicitacion, 10.0, 0, -1, 2, 4)
+--      celestia:print(interlocutor .. ":\n" .. recorrido[paso].felicitacion, 10.0, 0, -1, 2, 4)
+      printlargo(interlocutor .. ":\n" .. recorrido[paso].felicitacion, 1.0, 0, -1, 2, 4)
    else
-      celestia:print(recorrido[paso].felicitacion, 10.0, 0, -1, 2, 4)
+--      celestia:print(recorrido[paso].felicitacion, 10.0, 0, -1, 2, 4)
+      printlargo(recorrido[paso].felicitacion, 1.0, 0, -1, 2, 4)
    end
-   wait(10.0)
+--   wait(10.0)
 end
 
 function SiguienteObjetivo()

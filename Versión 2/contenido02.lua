@@ -62,7 +62,7 @@ recorrido = {
             { texto = "Juli: Quería conocer la luna interior más alejada de Saturno", personaje = "Gatito07.png" }
         },
         fallos = { "Deberias investigar mejor." },
-        felicitacion = "Creo que si lo he visto. ¿Un gato a rayas dijo? Si, creo que lo ví.",
+        felicitacion = "Creo que si lo he visto. ¿Un gato a rayas dijo?\nSi, creo que lo ví.",
     }, {
         objetivo = "Vía Láctea",
         pistas = {

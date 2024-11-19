@@ -214,13 +214,13 @@ while paso < #recorrido + 1 do
       if sel then -- ¿Hay algo seleccionado?
          if cerca() then -- Como algo está seleccionado se comprueva distancia a eso seleccionado.
             if sel:localname() == objetivoanterior then -- ¿El objetivo seleccionado es el anterior?
-               MostrarPistaActual() -- Nos comunicamos con alguien del punto de partida y vemos la piasta que nos dá.
+               MostrarPistaActual() -- Nos comunicamos con alguien del punto de partida y vemos la pista que nos dá.
             else -- El objeto seleccionado no es el objetivo anterior.
                if sel:localname() == recorrido[paso].objetivo then -- ¿Llegamos al objetivo?
                   ObjetivoActualAlcanzado() -- Alcanzamos el objetivo actual.
                   SiguienteObjetivo() -- Actualizamos estado del recorrido.
                else
-                  MostrarFallo() -- Llegamos un objeto que no es el objetivo.
+                  MostrarFallo() -- Llegamos a un objeto que no es el objetivo.
                end
             end
          else

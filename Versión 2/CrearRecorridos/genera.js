@@ -26,13 +26,7 @@ document.getElementById('formularioGenerador').addEventListener('submit', functi
     const finalTexto = document.getElementById('finalTexto').value;
     const finalImagen = document.getElementById('finalImagen').files[0]?document.getElementById('finalImagen').files[0].name:"";
     const finalSonido = document.getElementById('finalSonido').files[0]?document.getElementById('finalSonido').files[0].name:"";
-    const efectos = document.getElementsByName('finalEfecto');
-    for (var i = 0; i < efectos.length; i++) { // Parece mentira que haya que hacer tanto quilombo para ver cual es el que está seleccionado.
-        if (efectos[i].checked) {
-            var finalEfecto = efectos[i].value;
-            break;
-        }
-    }
+    const finalEfecto = document.getElementById('finalEfecto').value;
     
     let scriptLua = `
 -- Agregar aquí entre las comillas la ubicación de inicio (Navegación/Copy URL en Celestia)

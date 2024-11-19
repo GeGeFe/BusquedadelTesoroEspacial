@@ -100,8 +100,8 @@ recorrido = {
 function agregarCampo() {
     pistas = pistas + 1;
 
-    // Obtener el formulario por su ID
-    var formulario = document.getElementById('formularioGenerador');
+    // Obtener sección "Puntos del recorrido" del formulario por su ID
+    var recorrido = document.getElementById('recorrido');
 
 // Objetivo    
     // Crear elementos del formulario (etiqua e input)
@@ -118,9 +118,9 @@ function agregarCampo() {
     nuevoInput.name = 'objetivo' + pistas;
     
     // Agregar las nuevas etiquetas e inputs al formulario
-    formulario.appendChild(nuevaEtiqueta);
-    formulario.appendChild(nuevoInput);
-    formulario.appendChild(document.createElement('br')); // Para dar espacio entre los campos
+    recorrido.appendChild(nuevaEtiqueta);
+    recorrido.appendChild(nuevoInput);
+    recorrido.appendChild(document.createElement('br')); // Para dar espacio entre los campos
     
     // Limpiar el valor del input recién creado
     nuevoInput.value = '';
@@ -140,12 +140,13 @@ function agregarCampo() {
     nuevoInput.size = '100';
     
     // Agregar las nuevas etiquetas e inputs al formulario
-    formulario.appendChild(nuevaEtiqueta);
-    formulario.appendChild(nuevoInput);
-    formulario.appendChild(document.createElement('br')); // Para dar espacio entre los campos
+    recorrido.appendChild(nuevaEtiqueta);
+    recorrido.appendChild(nuevoInput);
+    recorrido.appendChild(document.createElement('br')); // Para dar espacio entre los campos
     
     // Limpiar el valor del input recién creado
     nuevoInput.value = '';
+    
 // Fallo/s separados por |
     var nuevaEtiqueta = document.createElement('label');
     var nuevoInput = document.createElement('input');
@@ -162,12 +163,13 @@ function agregarCampo() {
     nuevoInput.size = '100';
     
     // Agregar las nuevas etiquetas e inputs al formulario
-    formulario.appendChild(nuevaEtiqueta);
-    formulario.appendChild(nuevoInput);
-    formulario.appendChild(document.createElement('br')); // Para dar espacio entre los campos
+    recorrido.appendChild(nuevaEtiqueta);
+    recorrido.appendChild(nuevoInput);
+    recorrido.appendChild(document.createElement('br')); // Para dar espacio entre los campos
     
     // Limpiar el valor del input recién creado
     nuevoInput.value = '';
+
 // Felicitacion
     var nuevaEtiqueta = document.createElement('label');
     var nuevoInput = document.createElement('input');
@@ -182,9 +184,9 @@ function agregarCampo() {
     nuevoInput.name = 'felicitacion' + pistas;
     
     // Agregar las nuevas etiquetas e inputs al formulario
-    formulario.appendChild(nuevaEtiqueta);
-    formulario.appendChild(nuevoInput);
-    formulario.appendChild(document.createElement('br')); // Para dar espacio entre los campos
+    recorrido.appendChild(nuevaEtiqueta);
+    recorrido.appendChild(nuevoInput);
+    recorrido.appendChild(document.createElement('br')); // Para dar espacio entre los campos
     
     // Limpiar el valor del input recién creado
     nuevoInput.value = '';
@@ -205,9 +207,9 @@ function agregarCampo() {
     nuevoInput.accept = 'image/*';
     
     // Agregar las nuevas etiquetas e inputs al formulario
-    formulario.appendChild(nuevaEtiqueta);
-    formulario.appendChild(nuevoInput);
-    formulario.appendChild(document.createElement('hr')); // Para dar espacio entre los campos
+    recorrido.appendChild(nuevaEtiqueta);
+    recorrido.appendChild(nuevoInput);
+    recorrido.appendChild(document.createElement('hr')); // Para dar espacio entre los campos
     
     // Limpiar el valor del input recién creado
     nuevoInput.value = '';

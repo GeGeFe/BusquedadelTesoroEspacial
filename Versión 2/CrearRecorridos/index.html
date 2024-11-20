@@ -55,32 +55,17 @@
                     <input type="text" id="finalTexto" name="finalTexto" size="100" placeholder="Indique un texto para finalizar la historia/recorrido. Puede utilizar \ seguido de la letra n, para generar un salto de linea."><br>
                     <label for="finalPausa">Pausa final:</label><br>
                     <input type="number" id="finalPausa" name="finalPausa" step="0.1"><br>
-                    <label for="finalImagen"> Imagen final </label><br>
+                    <label for="finalImagen"> Imagen final: </label><br>
                     <input type="file" id="finalImagen" name="finalImagen" accept="image/*"><br>
-                    <label for="finalSonido"> Sonido final </label><br>
+                    <label for="finalSonido"> Sonido final: </label><br>
                     <input type="file" id="finalSonido" name="finalSonido" accept="audio/*"><br>
-                    <fieldset>
-                        <legend>Seleccione un efecto especial para el final:</legend>
-                        <div>
-                            <input type="radio" id="fuegosartificiales" name="finalEfecto" value="fuegosartificiales" checked />
-                            <label for="fuegosartificiales">Fuegos artificiales</label>
-                        </div>
-
-                        <div>
-                            <input type="radio" id="orbitar" name="finalEfecto" value="orbitar" />
-                            <label for="orbitar">Orbitar alrededor del último destino</label>
-                        </div>
-
-                        <div>
-                            <input type="radio" id="alejarse" name="finalEfecto" value="alejarse" />
-                            <label for="alejarse">Alejarse</label>
-                        </div>
-            
-                        <div>
-                            <input type="radio" id="nada" name="finalEfecto" value="" />
-                            <label for="nada">Sin efecto</label>
-                        </div>
-                    </fieldset>
+                    <label>Seleccione un efecto especial para el final:</label><br>
+                    <select name="finalEfecto" id="finalEfecto">
+                        <option value="fuegosartificiales">Fuegos artificiales</option>
+                        <option value="orbitar">Orbitar alrededor del último destino</option>
+                        <option value="alejarse">Alejarse</option>
+                        <option value="nada">Sin efecto</option>
+                    </select> 
                 </div>
             </div>
             

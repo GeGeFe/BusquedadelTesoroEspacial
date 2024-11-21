@@ -2,24 +2,40 @@
 
 Este es un script para el programa [Celestia](https://celestiaproject.space/) que permite realizar una "búsqueda del tesoro espacial" o una persecución similar a la del famoso juego ["¿Dónde está Carmen San Diego?"](https://www.clasicosbasicos.org/juegos/aventura-grafica/donde-esta-carmen-sandiego-buscala-por-todo-el-mundo).
 
-No es necesario instalar nada. Solo abrir Celestia y hacer clic en archivo/abrir script. Luego elegir el archivo Tesoro.celx.
+No es necesario instalar nada. Solo descargar el código y ejecutar el script Persecución.sh o Persecución.bat según el sistema operativo Linux o Windows.
 
 ## Para docentes o quienes quieran crear sus propios recorridos:
 
 [Video explicativo](https://youtu.be/PUFqwxdwHwg)
 
-Por ahora para cada recorrido/persecución es necesario crear una copia del archivo del script Tesoro.celx y modificar internamente la parte señalada entre comentarios (Los comentarios son las lineas del archivo que comienzan por **--**)
+Para crear nuevos recorridos/persecuciones se puede utilizar la página web que está dentro de la carpeta CrearRecorridos.
+
+Para ejecutar luego el recorrido creado debe copiarlo en la carpeta en la que se encuentra Persecucion.celx y ejecutar el script de la siguiente forma.
+
+(en Linux)
+```bash
+  ./Persecución.sh contenido.lua
+```
+
+(en Windows)
+```powershell
+  ./Persecución.bat contenido.lua
+```
+
+* Reemplazar contenido.lua por el archivo generado por el creador de contenidos o por el contenido deseado.
+
+Los archivos de imagenes y sonidos deben guardarse en la carpeta de imágenes y sonidos del script Persecucion.celx
 
 El script funciona en **Celestia 1.7.0 para linux**. En  una instalación de una versión anterior no funcionó. También funciona bien en **Celestia 1.6.2.2 para Windows** (Gracias a Ricardo Tohmé por probarlo).
-
-En caso de utilizarlo como búsqueda del tesoro la etiqueta *felicitacion* funciona como su nombre indica. Si se hace una persecución espacial, la *felicitacion* cambia de sentido y sirve para explicar como a pesar de haber llegado al destino resolviendo la pista, el *ladrón espacial* se nos escapa y se va al siguiente destino.
-
-Por cada punto del recorrido se debe agregar una linea como la siguiente:
+No sé a partir de que version se incorpora la función para agregar imágenes en celestia (overlay) así que en versiones previas a la 1.7 no funciona el script si están las imágenes habilitadas. Para deshabilitarlas agregar al archivo de contenido la instrucción
 
 ```lua
-  recorrido[n] = { objetivo = "Destino n", pista = "Pista n", felicitacion = "Felicitación n/Excusa n" }
+  noimagen = true
 ```
-Tener mucho cuidado con las comas y espacios. Deben quedar igual. Solo modificar lo que está entre comillas y el número del paso del recorrido (lo que está entre corchetes []).
+
+En caso de utilizarlo como búsqueda del tesoro la etiqueta *felicitacion* funciona como su nombre indica. Si se hace una persecución espacial, la *felicitacion* cambia de sentido y sirve para explicar como, a pesar de haber llegado al destino resolviendo la pista, el *ladrón espacial* se nos escapa y se va al siguiente destino.
+
+Por ahora los recorridos/persecuciones creados no se pueden modificar facilmente (Hay que editar manualmente el archivo .lua creado).
 
 ## Para programadores:
 
@@ -44,6 +60,28 @@ También me sirvió ver los propios script que trae el programa para comprender 
 
 Se me ocurren muchas mejoras que se pueden hacer al script e invito a la comunidad a colaborar. Entre ellas están:
 
-* Separar la parte editable con las opciones del recorrido y que al iniciar el script se pueda seleccionar uno.
 * Detección múltiple de lugares a los que llega el usuario para dar diferentes mensajes.
-* Algún sistema de edición menos técnico para los docentes u otras personas que quieran crear sus propios recorridos.
+* Mejorar el sistema de creación de recorridos/persecuciones.
+
+# Diagrama de funcionamiento
+
+```mermaid
+flowchart TD
+    Travelling{¿Travelling?} -->|false| Select{ ¿sel==nil?};
+    Travelling-->|true| Celestia;
+    Select-->|true| Celestia;
+    Select-->|false| Cerca{¿Cerca?};
+    Cerca-->|false| Celestia;
+    Cerca-->|true| Anterior{¿sel == objetivoanterior?};
+    Anterior-->|false| Actual{¿sel == objetivoactual?};
+    Anterior-->|true| Pista[Mostrar pista];
+    Actual-->|false| Fallo[Mostrar fallo];
+    Actual-->|true| Felicitacion[Felicitación];
+    Felicitacion-->Final{¿Final?};
+    Final-->|false| Siguiente[Siguiente objetivo];
+    Final-->|true| EscenaFinal[Escena final];
+    Siguiente-->Celestia;
+    Pista-->Celestia;
+    Fallo-->Celestia;
+    EscenaFinal-->Celestia;
+```

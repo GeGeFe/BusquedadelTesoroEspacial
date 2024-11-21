@@ -6,7 +6,7 @@ No es necesario instalar nada. Solo descargar el código y ejecutar el script Pe
 
 ## Para docentes o quienes quieran crear sus propios recorridos:
 
-[Video explicativo](https://youtu.be/PUFqwxdwHwg)
+[Video explicativo](https://fediverse.tv/w/9VtLo6d1YR7CmkEGXCevtZ)
 
 Para crear nuevos recorridos/persecuciones se puede utilizar la página web que está dentro de la carpeta CrearRecorridos.
 (Gracias a tar.bz2 por su enorme aporte en el css)

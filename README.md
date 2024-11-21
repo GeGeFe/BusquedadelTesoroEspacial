@@ -9,6 +9,7 @@ No es necesario instalar nada. Solo descargar el código y ejecutar el script Pe
 [Video explicativo](https://youtu.be/PUFqwxdwHwg)
 
 Para crear nuevos recorridos/persecuciones se puede utilizar la página web que está dentro de la carpeta CrearRecorridos.
+(Gracias a tar.bz2 por su enorme aporte en el css)
 
 Para ejecutar luego el recorrido creado debe copiarlo en la carpeta en la que se encuentra Persecucion.celx y ejecutar el script de la siguiente forma.
 

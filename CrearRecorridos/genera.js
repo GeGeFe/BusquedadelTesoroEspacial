@@ -7,6 +7,26 @@ const estado = {
 
 let pistas = 0;
 
+function ocultarOMostrarCargarImagen(){
+    const cargarImagen = document.getElementById("cargarImagen")
+    if (document.getElementById("noImagen").checked){
+        cargarImagen.style.display = '';
+    }
+    else {
+        cargarImagen.style.display = 'none';
+    }
+};
+
+function ocultarOMostrarCargarSonido(){
+    const cargarSonido = document.getElementById("cargarSonido")
+    if (document.getElementById("sinSonido").checked){
+        cargarSonido.style.display = '';
+    }
+    else {
+        cargarSonido.style.display = 'none';
+    }
+};
+
 document.getElementById('formularioGenerador').addEventListener('submit', function(event) {
     event.preventDefault(); // Evita que el formulario se envíe d la manera predeterminada
     

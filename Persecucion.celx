@@ -177,7 +177,7 @@ end
 -- Cargo nombres para personajes secundarios.
 if (nombresalazar == "" or nombresalazar == nil) then
 else
-   dofile(pathscript .. "nombres/" .. nombresalazar)
+   dofile(pathcontenido .. "nombres/" .. nombresalazar)
 end
 
 celestia:seturl(ubicacioninicial, observador) -- Siempre debe haber una ubicacion inicial para comenzar el juego desde ahí.

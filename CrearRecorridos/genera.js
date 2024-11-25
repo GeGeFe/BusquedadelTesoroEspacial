@@ -48,8 +48,6 @@ document.getElementById('formularioGenerador').addEventListener('submit', functi
     const finalEfecto = document.getElementById('finalEfecto').value;
     
     let scriptLua = `
--- Agregar aquí entre las comillas la ubicación de inicio (Navegación/Copy URL en Celestia)
--- Comentar la línea si no se quiere especificar una ubicación inicial.
 sinsonido = ${sinSonido}
 noimagen = ${noImagen}
 nombresalazar = "${nombresalAzar}"

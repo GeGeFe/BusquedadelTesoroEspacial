@@ -56,13 +56,13 @@ end
 
 function fuegosartificiales()
    for i = 1, final.pausa / 3, 1 do
-      celestia:overlay ( 1, 0, 0, 0.7, pathname .. "/imagenes/fuegosartificiales1.png" )
+      celestia:overlay ( 1, 0, 0, 0.7, pathscript .. "/imagenes/fuegosartificiales1.png" )
       wait(0.5)
-      celestia:overlay ( 1, -0.5, 0, 0.7, pathname .. "/imagenes/fuegosartificiales2.png" )
+      celestia:overlay ( 1, -0.5, 0, 0.7, pathscript .. "/imagenes/fuegosartificiales2.png" )
       wait(1)
-      celestia:overlay ( 2, 0.5, -0.5, 0.7, pathname .. "/imagenes/fuegosartificiales3.png" )
+      celestia:overlay ( 2, 0.5, -0.5, 0.7, pathscript .. "/imagenes/fuegosartificiales3.png" )
       wait(0.5)
-      celestia:overlay ( 1, 0.5, 0.5, 0.7, pathname .. "/imagenes/fuegosartificiales4.png" )
+      celestia:overlay ( 1, 0.5, 0.5, 0.7, pathscript .. "/imagenes/fuegosartificiales4.png" )
       wait(1)
    end
 end
@@ -71,7 +71,7 @@ end
 
 function MostrarPistaActual()
    if not noimagen then
-      celestia:overlay ( 1.0, -0.8, -0.5, 1, pathname .. "imagenes/" .. recorrido[paso].pistas[npista].personaje )
+      celestia:overlay ( 1.0, -0.8, -0.5, 1, pathcontenido .. "imagenes/" .. recorrido[paso].pistas[npista].personaje )
    end
    celestia:print(recorrido[paso].pistas[npista].texto, 1.0, -1, -1, 2, 4)
 end
@@ -109,7 +109,7 @@ end
 
 function play(sonido, duracion)
    if not sinsonido then
-      archivo = pathname .. "sonidos/" .. sonido
+      archivo = pathcontenido .. "sonidos/" .. sonido
       if sistemaoperativo == "Linux" then
          respuestasistema = os.execute("ffplay \"" .. archivo .. "\" -nodisp -autoexit -t " .. duracion .. "&")
       elseif sistemaoperativo == "Windows" then
@@ -153,32 +153,41 @@ ubicacioninicial = "cel://Follow/Sol:Earth/2024-06-17T19:32:20.64205Z?x=6hfcEn0+
 -- Fin de valores por defecto
 
 observador = celestia:getobserver()
-pathname = celestia:getscriptpath():match("(.*[/\\])")
+pathscript = celestia:getscriptpath():match("(.*[/\\])")
 
 celestia:requestsystemaccess() -- Se solicita acceso al sistema.
 wait(0)
 
 -- Se carga el contenido.
 contenido = os.getenv("contenidocelestia")
+pathcontenido = contenido:match("(.*/)")
+if pathcontenido == nil then
+   pathcontenido = pathscript
+end
+contenido = contenido:match("([^/\\]+)$")
+
+celestia:print(pathcontenido .. "\n" .. pathscript .. "\n" .. contenido, 5, -1, 0, 0, 0)
+wait(5)
+
 sistemaoperativo = os.getenv("so")
 wait(0)
 if (contenido == "") or (contenido == nil) then
-   dofile(pathname .. "Tutorial.lua") -- Reemplazar lo que está entre comillas por el archivo de contenido correspondiente.
+   dofile(pathscript .. "Tutorial.lua") -- Reemplazar lo que está entre comillas por el archivo de contenido correspondiente.
 else
-   dofile(pathname .. contenido)
+   dofile(pathcontenido .. contenido)
 end
 
 -- Cargo nombres para personajes secundarios.
 if (nombresalazar == "" or nombresalazar == nil) then
 else
-   dofile(pathname .. "nombres/" .. nombresalazar)
+   dofile(pathscript .. "nombres/" .. nombresalazar)
 end
 
 celestia:seturl(ubicacioninicial, observador) -- Siempre debe haber una ubicacion inicial para comenzar el juego desde ahí.
 
 -- Introducción
 if not noimagen then
-   celestia:overlay ( introduccion.pausa, 0, 0.7, 1, pathname .. "imagenes/" .. introduccion.imagen )
+   celestia:overlay ( introduccion.pausa, 0, 0.7, 1, pathcontenido .. "imagenes/" .. introduccion.imagen )
 end
 celestia:print(introduccion.texto, introduccion.pausa, -1, 0, 2, 4)
 if not sinsonido then
@@ -232,7 +241,7 @@ end
 
 -- Final
 if not noimagen then
-   celestia:overlay ( final.pausa, 0, -0.7, 1, pathname .. "imagenes/" .. final.imagen )
+   celestia:overlay ( final.pausa, 0, -0.7, 1, pathcontenido .. "imagenes/" .. final.imagen )
 end
 celestia:print(final.texto, final.pausa, -1, 0, 2, 4)
 if not sinsonido then

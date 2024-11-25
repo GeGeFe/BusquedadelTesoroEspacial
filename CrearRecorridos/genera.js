@@ -205,29 +205,34 @@ function agregarCampo() {
     // Limpiar el valor del input recién creado
     nuevoInput.value = '';
     
-// Imagen
     // Felicitacion
     var nuevaEtiqueta = document.createElement('label');
     var nuevoInput = document.createElement('input');
 
-    
     // Configurar atributos para la nueva etiqueta
     nuevaEtiqueta.htmlFor = 'personaje' + pistas;
     nuevaEtiqueta.innerHTML = 'Imagen del personaje ' + pistas + ': ';
+
+    // Imagen
+    var nuevoDivImagen = document.createElement('div');
+        nuevoDivImagen.setAttribute('class', 'cargarImagen');
+
+        // Configurar atributos para el nuevo input
+        nuevoInput.type = 'file';
+        nuevoInput.id = 'personaje' + pistas;
+        nuevoInput.name = 'personaje' + pistas;
+        nuevoInput.accept = 'image/*';
     
-    // Configurar atributos para el nuevo input
-    nuevoInput.type = 'file';
-    nuevoInput.id = 'personaje' + pistas;
-    nuevoInput.name = 'personaje' + pistas;
-    nuevoInput.accept = 'image/*';
+        // Agregar las nuevas etiquetas e inputs al formulario
+        nuevoDivImagen.appendChild(nuevaEtiqueta);
+        nuevoDivImagen.appendChild(nuevoInput);
     
-    // Agregar las nuevas etiquetas e inputs al formulario
-    recorrido.appendChild(nuevaEtiqueta);
-    recorrido.appendChild(nuevoInput);
+        // Limpiar el valor del input recién creado
+        nuevoInput.value = '';
+    recorrido.appendChild(nuevoDivImagen);
     recorrido.appendChild(document.createElement('hr')); // Para dar espacio entre los campos
-    
-    // Limpiar el valor del input recién creado
-    nuevoInput.value = '';
+
 }
 
+// Agrega el primer campo cuando se llama al script por primera vez.
 agregarCampo();

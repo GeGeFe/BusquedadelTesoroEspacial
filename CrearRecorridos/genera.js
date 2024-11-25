@@ -212,7 +212,7 @@ function agregarCampo() {
     
     // Configurar atributos para la nueva etiqueta
     nuevaEtiqueta.htmlFor = 'personaje' + pistas;
-    nuevaEtiqueta.innerHTML = 'Personaje ' + pistas + ': ';
+    nuevaEtiqueta.innerHTML = 'Imagen del personaje ' + pistas + ': ';
     
     // Configurar atributos para el nuevo input
     nuevoInput.type = 'file';

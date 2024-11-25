@@ -1,15 +1,15 @@
-.principal{
+.principal {
     background-image: url("./universo_2560x1440.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    color:#b8b8b8;
+    color: #b8b8b8;
     text-align: center;
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-.seccion{
+.seccion {
     text-align: center;
     width: auto;
     margin: 15px;
@@ -20,7 +20,7 @@
     border-radius: 15px;
 }
 
-.general{
+.general {
     text-align: center;
     width: auto;
     margin: 15px;
@@ -32,7 +32,7 @@
     border: 2px solid #00779b;
 }
 
-.introduccion{
+.introduccion {
     text-align: center;
     width: auto;
     margin: 15px;
@@ -44,7 +44,7 @@
     border: 2px solid #9b4600;
 }
 
-.final{
+.final {
     text-align: center;
     width: auto;
     margin: 15px;
@@ -56,7 +56,7 @@
     border: 2px solid #9b7700;
 }
 
-.recorrido{
+.recorrido {
     text-align: center;
     width: auto;
     margin: 10px;
@@ -68,7 +68,7 @@
     border: 2px solid #319b00;
 }
 
-.card{
+.card {
     text-align: center;
     width: auto;
     margin: 15px;
@@ -80,7 +80,7 @@
     border-radius: 15px;
 }
 
-input{
+input {
     background-color: rgb(255, 245, 255);
     font-size: 15px;
 }
@@ -98,7 +98,7 @@ input[type="file"] {
     border-radius: 15px;
 }
 
-select{
+select {
     margin: 10px;
     padding: 10px;
     font-size: 15px;
@@ -108,20 +108,20 @@ select{
     border-radius: 15px;
 }
 
-p{
+p {
     font-size: 20px;
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-label{
+label {
     margin: 10px;
     padding: 10px;
     font-size: 20px;
 }
 
-input{
+input {
     margin: 10px;
     padding: 10px;
     font-size: 15px;
@@ -131,7 +131,7 @@ input{
     border-radius: 15px;
 }
 
-h1{
+h1 {
     text-align: center;
     width: auto;
     background-color: rgb(90, 2, 90);
@@ -152,12 +152,26 @@ hr {
 }
 
 button {
-    border: none; 
+    border: none;
     font-size: 15px;
-    color: white; 
+    color: white;
     background-color: rgb(0, 133, 29);
     padding: 10px 20px;
     margin: 20px;
-    cursor: pointer; 
+    cursor: pointer;
     border-radius: 10px;
-  }
+}
+
+.cargarImagen {
+    border: 1px solid #999999;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 15px;
+}
+
+.cargarSonido {
+    border: 1px solid #999999;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 15px;
+}

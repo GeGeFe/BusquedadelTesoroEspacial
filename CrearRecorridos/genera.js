@@ -10,20 +10,20 @@ let pistas = 0;
 function ocultarOMostrarCargarImagen(){
     const cargarImagen = document.getElementById("cargarImagen")
     if (document.getElementById("noImagen").checked){
-        cargarImagen.style.display = '';
-    }
-    else {
         cargarImagen.style.display = 'none';
     }
+    else {
+        cargarImagen.style.display = '';
+    }
 };
-
+``
 function ocultarOMostrarCargarSonido(){
     const cargarSonido = document.getElementById("cargarSonido")
     if (document.getElementById("sinSonido").checked){
-        cargarSonido.style.display = '';
+        cargarSonido.style.display = 'none';
     }
     else {
-        cargarSonido.style.display = 'none';
+        cargarSonido.style.display = '';
     }
 };
 

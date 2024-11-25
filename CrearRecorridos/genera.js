@@ -8,15 +8,14 @@ const estado = {
 let pistas = 0;
 
 function ocultarOMostrarCargarImagen(){
-    const cargarImagen = document.getElementById("cargarImagen")
     if (document.getElementById("noImagen").checked){
-        cargarImagen.style.display = 'none';
+        for (let el of document.querySelectorAll('.cargarImagen')) el.style.display = 'none';
     }
     else {
-        cargarImagen.style.display = '';
+        for (let el of document.querySelectorAll('.cargarImagen')) el.style.display = '';
     }
 };
-``
+
 function ocultarOMostrarCargarSonido(){
     const cargarSonido = document.getElementById("cargarSonido")
     if (document.getElementById("sinSonido").checked){
@@ -216,7 +215,9 @@ function agregarCampo() {
     // Imagen
     var nuevoDivImagen = document.createElement('div');
         nuevoDivImagen.setAttribute('class', 'cargarImagen');
-
+        if (document.getElementById("noImagen").checked){
+            nuevoDivImagen.style.display = 'none';
+        }
         // Configurar atributos para el nuevo input
         nuevoInput.type = 'file';
         nuevoInput.id = 'personaje' + pistas;

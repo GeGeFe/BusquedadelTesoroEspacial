@@ -166,9 +166,6 @@ if pathcontenido == nil then
 end
 contenido = contenido:match("([^/\\]+)$")
 
-celestia:print(pathcontenido .. "\n" .. pathscript .. "\n" .. contenido, 5, -1, 0, 0, 0)
-wait(5)
-
 sistemaoperativo = os.getenv("so")
 wait(0)
 if (contenido == "") or (contenido == nil) then

@@ -209,6 +209,7 @@ function agregarCampo() {
     // Felicitacion
     var nuevaEtiqueta = document.createElement('label');
     var nuevoInput = document.createElement('input');
+
     
     // Configurar atributos para la nueva etiqueta
     nuevaEtiqueta.htmlFor = 'personaje' + pistas;

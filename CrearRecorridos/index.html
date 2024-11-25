@@ -40,12 +40,12 @@
                     <input type="number" id="introduccionPausa" name="introduccionPausa" step="0.1"><br>
                     
                     <!-- Carga de archivos - Se ocultan o muestra según checkboxs de la configuración general -->
-                    <div id="cargarImagen">
+                    <div id="cargarImagen" class="cargarImagen">
                         <label for="introduccionImagen"> Imagen inicial </label>
                         <p>Las imágenes deben copiarse manualmente a la carpeta "imagenes" para que el script los encuentre.</p>
                         <input type="file" id="introduccionImagen" name="introduccionImagen" accept="image/*">
                     </div>
-                    <div id="cargarSonido">
+                    <div id="cargarSonido" class="cargarSonido">
                         <label for="introduccionSonido"> Sonido inicial </label>
                         <p>Los sonidos deben copiarse manualmente a la carpeta "sonidos" para que el script los encuentre.</p>
                         <input type="file" id="introduccionSonido" name="introduccionSonido" accept="audio/*">
@@ -61,10 +61,14 @@
                     <input type="text" id="finalTexto" name="finalTexto" size="100" placeholder="Indique un texto para finalizar la historia/recorrido. Puede utilizar \ seguido de la letra n, para generar un salto de linea."><br>
                     <label for="finalPausa">Pausa final:</label><br>
                     <input type="number" id="finalPausa" name="finalPausa" step="0.1"><br>
-                    <label for="finalImagen"> Imagen final: </label><br>
-                    <input type="file" id="finalImagen" name="finalImagen" accept="image/*"><br>
-                    <label for="finalSonido"> Sonido final: </label><br>
-                    <input type="file" id="finalSonido" name="finalSonido" accept="audio/*"><br>
+                    <div class="cargarImagen">
+                        <label for="finalImagen"> Imagen final: </label><br>
+                        <input type="file" id="finalImagen" name="finalImagen" accept="image/*"><br>
+                    </div>
+                    <div class="cargarSonido">
+                        <label for="finalSonido"> Sonido final: </label><br>
+                        <input type="file" id="finalSonido" name="finalSonido" accept="audio/*"><br>
+                    </div>
                     <label>Seleccione un efecto especial para el final:</label><br>
                     <select name="finalEfecto" id="finalEfecto">
                         <option value="fuegosartificiales">Fuegos artificiales</option>

@@ -8,6 +8,22 @@ function celestia_keyboard_callback(tecla)
    return true
 end
 
+-- Función que habilita viajes en el tiempo. Si se llega a la posición del objeto pero no está activo no es válido.
+function activo(objeto)
+   if objeto:type() ~= 'spacecraft' then
+       -- Si no es un objeto artificial se asume que no tiene timeline y simpre está activo.
+       return true
+   else
+       -- Si es un objeto artificial activo existirá una fase del timeline para el tiempo actual.
+       local currentDate = celestia:gettime()  -- Obtiene la fecha y hora actual
+       if objeto:getphase(currentDate) == nil then
+           return false
+       else
+           return true
+       end
+   end
+end
+
 function cerca()
    distancia = sel:getposition():distanceto(observador:getposition())
    distpradio = distancia * 100 / sel:radius()
@@ -219,7 +235,7 @@ while paso < #recorrido + 1 do
             if sel:localname() == objetivoanterior then -- ¿El objetivo seleccionado es el anterior?
                MostrarPistaActual() -- Nos comunicamos con alguien del punto de partida y vemos la pista que nos dá.
             else -- El objeto seleccionado no es el objetivo anterior.
-               if sel:localname() == recorrido[paso].objetivo then -- ¿Llegamos al objetivo?
+               if sel:localname() == recorrido[paso].objetivo and activo(sel) then -- ¿Llegamos al objetivo?
                   ObjetivoActualAlcanzado() -- Alcanzamos el objetivo actual.
                   SiguienteObjetivo() -- Actualizamos estado del recorrido.
                else

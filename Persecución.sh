@@ -7,7 +7,5 @@ for nombre in "${nombres_executables[@]}"; do
     # Intenta ejecutar el programa con el nombre actual
     if $nombre -u Persecucion.celx > /dev/null 2>&1; then
         break; # Sale del bucle si logra ejecutar Celestia
-    else
-        echo "No se pudo encontrar el ejecutable de Celestia"
     fi
 done

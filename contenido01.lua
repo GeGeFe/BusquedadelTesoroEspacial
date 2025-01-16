@@ -19,6 +19,7 @@ recorrido = {
             { texto = "Agente de viajes: Quería saber si había hotel disponible en la cara oculta.", personaje = "personaje01.png" },
             { texto = "Pirula Perez: Estaba estudiando los pasos de la nave Chandrayaan-3.", personaje = "personaje08.png" }
         },
+        fallos = { "¿Elon qué? No lo conozco.", "No lo conozco."},
         felicitacion = "Elongast estuvo aquí pero ha escapado nuevamente.",
     }, {
         objetivo = "Marte",
@@ -39,6 +40,7 @@ recorrido = {
         pistas = {
             { texto = "Vendedor: Preguntó por la cinta métrica más grande que teníamos. Al parecer quiere medir algo enorme.", personaje = "personaje04.png" }
         },
+        fallos = { "No se de que habla.", "Siga buscando."},
         felicitacion = "¡Que enredo! Mire como dejó todo con esa cinta enorme.",
     }, {
         objetivo = "Saturno",
@@ -46,6 +48,7 @@ recorrido = {
             { texto = "Vendedor: Le encantaron los esquies. Son para deporte extremo sobre anillos de partículas de hielo.", personaje = "personaje05.png" }
         },
         fallos = { "Usted no parece de la policía espacial.", "Me parece que está buscando mal." },
+        fallos = { "Ni idea.", "Nadie lo ha visto."},
         felicitacion = "Estás muy cerca...",
     }
 }

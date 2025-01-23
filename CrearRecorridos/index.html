@@ -37,7 +37,7 @@
                     <label for="introduccionTexto">Texto de Introducción:</label><br>
                     <input type="text" id="introduccionTexto" name="introduccionTexto" size="100" placeholder="Indique el texto de introducción. Puede utilizar \ seguido de la letra n, para generar un salto de linea."><br>
                     <label for="introduccionPausa">Pausa inicial:</label><br>
-                    <input type="number" id="introduccionPausa" name="introduccionPausa" step="0.1"><br>
+                    <input type="number" id="introduccionPausa" name="introduccionPausa" step="0.1" required><br>
                     
                     <!-- Carga de archivos - Se ocultan o muestra según checkboxs de la configuración general -->
                     <div id="cargarImagen" class="cargarImagen">
@@ -60,7 +60,7 @@
                     <label for="finalTexto">Felicitación final:</label><br>
                     <input type="text" id="finalTexto" name="finalTexto" size="100" placeholder="Indique un texto para finalizar la historia/recorrido. Puede utilizar \ seguido de la letra n, para generar un salto de linea."><br>
                     <label for="finalPausa">Pausa final:</label><br>
-                    <input type="number" id="finalPausa" name="finalPausa" step="0.1"><br>
+                    <input type="number" id="finalPausa" name="finalPausa" step="0.1" required><br>
                     <div class="cargarImagen">
                         <label for="finalImagen"> Imagen final: </label><br>
                         <input type="file" id="finalImagen" name="finalImagen" accept="image/*"><br>

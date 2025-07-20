@@ -24,6 +24,10 @@ function activo(objeto)
    end
 end
 
+function sinInterlocutor(cadena)
+   return string.match(cadena, "^(%w+( %w+)*)?:") == nil
+end
+
 function cerca()
    distancia = sel:getposition():distanceto(observador:getposition())
    distpradio = distancia * 100 / sel:radius()
@@ -93,8 +97,8 @@ function MostrarPistaActual()
 end
 
 function ObjetivoActualAlcanzado()
-   if interlocutor then
-      printlargo(interlocutor .. ":\n" .. recorrido[paso].felicitacion, 1.0, 0, -1, 2, 4)
+   if interlocutor and sinInterlocutor(recorrido[paso].felicitacion) then
+      printlargo(interlocutor .. ":\n" .. recorrido[paso].felicitacion, 1.0, 0, -1, 2, 4)  
    else
       printlargo(recorrido[paso].felicitacion, 1.0, 0, -1, 2, 4)
    end
@@ -108,7 +112,7 @@ end
 
 function MostrarFallo()
    if nfallo then
-      if interlocutor then
+      if interlocutor and sinInterlocutor(recorrido[paso].fallos[nfallo])then
          celestia:print(interlocutor .. ":\n" .. recorrido[paso].fallos[nfallo], 1.0, 0, -1, 2, 4)
       else
          celestia:print(recorrido[paso].fallos[nfallo], 1.0, 0, -1, 2, 4)

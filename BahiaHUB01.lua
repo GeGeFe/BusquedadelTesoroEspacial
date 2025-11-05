@@ -25,11 +25,11 @@ recorrido = {
     
     {   objetivo = "Sol",
         pistas = {
-            { texto = "Josué: Me compró unos lentes de sol.\nIncistió en que fueran los más poderosos.", personaje = "no_bg_251103_104740.png"},
+            { texto = "Josué: Me compró unos lentes de sol.\nInsistió en que fueran los más poderosos.", personaje = "no_bg_251103_104740.png"},
             { texto = "Jano: Me dijo que a donde iba se necesitan como un millón de tierras para cubrir todo.", personaje = "Ninja.png" }
         },
         fallos = { "Por aquí nadie a visto a ningún gato.","No sé de que me habla." },
-        felicitacion = "La policía intergaláctica analisó estos pelos.\n¡Son del Gato a Rayas! Estuvo aquí."
+        felicitacion = "La policía intergaláctica analizó estos pelos.\n¡Son del Gato a Rayas! Estuvo aquí."
     },
 
     {   objetivo = "Júpiter",
